@@ -19,7 +19,7 @@ public interface Operator {
 	public void allPortsReady() throws Exception;
 	public void process(StreamingInput<Tuple> port, Tuple tuple) throws Exception;
 	public void processPunctuation(StreamingInput<Tuple> port, Punctuation mark) throws Exception;
-	public void shutdown() throws Exception;
+	public void shutdown() throws Exception; 
 }      
 ~~~~~~
 
