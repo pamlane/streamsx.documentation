@@ -7,10 +7,10 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: beamrunner-3-sample
+  file: beamrunner-4-sample
   title: Sample app
 next:
-  file: beamrunner-5-ref
+  file: beamrunner-6-ref
   title: Reference
 ---
 

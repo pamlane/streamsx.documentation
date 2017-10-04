@@ -7,10 +7,10 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: beamrunner-2-install
-  title: Installing
+  file: beamrunner-3-using
+  title: Using
 next:
-  file: beamrunner-4-monitor
+  file: beamrunner-5-monitor
   title: Monitoring
 ---
 
