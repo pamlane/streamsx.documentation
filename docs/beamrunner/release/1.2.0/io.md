@@ -2,7 +2,7 @@
 layout: docs
 title:  Input/output options for IBM Streams Runner for Apache Beam
 navtitle: I/O options
-description:  Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam on a Streaming Analytics service on IBM Cloud have input/output options of standard output and errors, local file input, object storage on IBM Cloud, and Publish and Subscribe transforms.
+description:  Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam have input/output options of standard output and errors, local file input, Publish and Subscribe transforms, and object storage and messages on IBM Cloud.
 weight:  10
 published: true
 tag: beam-120
@@ -14,89 +14,99 @@ next:
   title: Using IBM Cloud Object Storage
 ---
 
-Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam on a Streaming Analytics service on IBM Cloud have several options for input/output:
+Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam have several options for input/output:
 
 - Standard output and errors
 - Local file input
-- Object storage on IBM Cloud
+- Object storage and messages on IBM Cloud
 - `Publish` and `Subscribe` transforms
 
 ## Standard output and errors
 
 Standard output and errors from the main thread of the application are shown in the terminal window where the runner is launched. The `TemperatureSample` application uses this method to display collected metrics.
 
-Standard output and errors in the Beam pipeline are not visible in the terminal because the pipeline is running on IBM Cloud. Instead, output and errors are written to log files on IBM Cloud. You can download the log files from the Streams Console, or you can view them in the console log viewer.
+Standard output and errors in the Beam pipeline are not visible in the terminal because the pipeline is running on a distributed resource (on-premise or in IBM Cloud). Instead, output and errors are written to log files on the distributed system. You can download the log files from the Streams Console, or you can view them in the console log viewer.
 
 ## Local file input (`streams://`)
 
-Because the application runs on IBM Cloud, it does not have direct access to local files. Local files can be uploaded to IBM Cloud when the runner is launched by using the `--filesToStage` option. This option uploads one or more local files to known locations on IBM Cloud, and the pipeline can access them directly from those locations by using the `streams://` scheme.
+Because the application runs on remote systems like in the IBM Cloud or distributed environment, it may not have direct access to local files. Local files can be uploaded to the distributed environment when the runner is launched by using the `--filesToStage` option. This option uploads one or more local files to known locations in the environment, and the pipeline can access them directly from those locations by using the `streams://` scheme.
 
-For example, `--filesToStage='{"/local/file.txt":"data/input"}'` copies the file `/local/file.txt` to IBM Cloud where the Beam application can reference it as `streams://data/input`.
+For example, `--filesToStage='{"/local/file.txt":"data/input"}'` copies the file `/local/file.txt` to IBM Cloud or distributed environment where the Beam application can reference it as `streams://data/input`.
 
 For more information about the `--filesToStage` option, see [Streams Runner pipeline options](../reference/#streams-runner-pipeline-options).
 
-## Object storage input/output on IBM Cloud (`swift://`)
+## Object storage input/output on IBM Cloud (`s3://`)
 
-The Beam application can use storage on IBM Cloud itself for both input and output by using the `swift://` scheme and the Object Storage OpenStack Swift for Bluemix service. Objects in the service can be manipulated through the web interface in IBM Cloud, a command-line tool, or from the pipeline in the Beam application. This service is useful when you run Apache Beam 2.4 applications on the Streaming Analytics service on IBM Cloud, where direct access to output files from Beam applications is difficult.
+A Beam application can use storage on IBM Cloud for both input and output by using the `s3://` scheme from the `beam-sdk-java-io-amazon-web-services` library and a Cloud Object Storage service on IBM Cloud. Objects in the service can be manipulated through the web interface in IBM Cloud, a command-line tool, or from the pipeline in the Beam application. This service is useful when you run Apache Beam 2.4 applications on the Streaming Analytics service on IBM Cloud, where direct access to output files from Beam applications is difficult.
 
-The Object Storage OpenStack Swift for Bluemix service stores objects in containers. For more information, see [Getting started with Object Storage](https://console.bluemix.net/docs/services/ObjectStorage/index.html). Beam I/O uses URIs to name files, and Streams Runner interprets the URI in the format <code>swift://_container_/_object_</code> to read and write to these objects.
+The Cloud Object Storage service stores objects in buckets. For more information, see [About IBM Cloud Object Storage](https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage). Beam I/O uses URIs to name files, and Streams Runner interprets the URI in the format <code>s3://_bucket_/_object_</code> to read and write to these objects.
 
-The object storage system doesn't allow the forward slash (/) character in the container name, but does allow it in the object name. Although the forward slash is not special to object storage, Streams Runner treats it as a directory separator in a logical path.
+The object storage system requires bucket names must be globally unique and DNS-compliant; names must be between 3 and 63 characters long must be made of lowercase letters, numbers, and dashes. This means the forward slash (/) character cannot be used in the bucket name, but it is allowed in the object name.
 
-For example, if a container named `MyContainer` contains objects named `top.txt` and `dir/nested.txt`, the object storage system shows these objects together in the list of objects in `MyContainer`. In Beam, the URIs `swift://MyContainer/foo.txt` and `swift://MyContainer/dir/nested.txt` refer to these two objects, but Beam also considers `swift://MyContainer/dir/` to be a logical directory that contains a resource named `nested.txt`. You can't use "Glob" patterns for resources (for example, `swift://MyContainer/dir/\*`).
+For example, if a bucket named `MyBucket` contains objects named `top.txt` and `dir/nested.txt`, the object storage system shows these objects together in the list of objects in `MyBucket`. In Beam, the URIs `s3://MyBucket/foo.txt` and `s3://MyBucket/dir/nested.txt` refer to these two objects, but Beam also considers `s3://MyBucket/dir/` to be a logical directory that contains a resource named `nested.txt`.
 
 For more information about managing file systems and resources with Beam, see the [Beam I/O documentation](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/package-summary.html).
 
-### Creating the Object Storage OpenStack Swift for Bluemix service
+### Creating an IBM Cloud Object Storage service
 
-<!-- The Bluemix in the service name hasn't been changed as of 11/1/17. Review in the future.-->
+If you have not already done so, you must create a Cloud Object Storage service and bucket.
 
-If you have not already done so, you must create the Object Storage OpenStack Swift for Bluemix service.
-
-1. On the IBM Cloud [dashboard](https://console.bluemix.net/dashboard) main menu, click **Storage**.
-2. Click **Create Storage service**.
-3. Click **Object Storage**.
-4. Select **Object Storage OpenStack Swift for Bluemix**.   
-  **Important**: IBM Cloud provides multiple object storage services, but only the Object Storage OpenStack Swift for Bluemix service is supported by IBM Streams Runner for Apache Beam.
-5. Click **Create**.
-6. Change the Service name to something meaningful to you. You can optionally change the region, organization, and space.
-7. For **Pricing Plan**, click **Lite**.
-8. Click **Create**. IBM Cloud returns to the Dashboard while the service is provisioned.
+1. On the IBM Cloud [catalog](https://console.bluemix.net/catalog) main menu (under Infrastructure), click **Storage**.
+1. Click **Object Storage**.
+1. Change the Service name to something meaningful to you or leave the default name.
+1. For **Pricing Plan**, click **Lite**.
+1. Click **Create**. IBM Cloud will return you to the Dashboard while the service is provisioned.
+1. Once provisioned, click on your object storage service in the Dashboard to open the **Buckets** page for the service.
+1. Click **Create Bucket**.
+1. Provide a unique bucket name (e.g., username-beam-bucket), resiliency, location, and storage class.
+1. Click **Create**
 
 ### Setting up credentials for the service
 
-To use the storage from Beam applications, you must specify the IBM Cloud service credentials. You can specify the credentials by setting environment variables or by using Swift command-line options. For more information about the Swift command-line options, see [Configuring the CLI to use Swift and Cloud Foundry commands](https://console.bluemix.net/docs/services/ObjectStorage/os_configuring.html).
+To use the storage service from Beam applications, you must specify the IBM Cloud service credentials. Since the `s3` FileSystem is based on AWS object storage, you will need to create credentials with Hash Message Authentication Code (HMAC) keys in your service.
 
-1. After the service is provisioned, select the object storage service that you created from the dashboard to open the **Manage** page for the service.
-2. On the service page, click **Service credentials**.
-3. If necessary, create a credential by clicking **New credential**. Use the default information and click **Add**.
-4. Click **View credentials**.
-5. On the computer where Streams Runner is installed, create the following environment variables from the fields that are shown in the credentials.  
+1. On the service page, click **Service credentials**.
+1. Create a credential by clicking **New credential**.
+1. Put `{"HMAC":true}` in the **Add Inline Configuration Parameters (Optional) field** and click **Add** to create the new credentials.
+1. Click **View credentials** on the newly added credentials.
+1. On the computer where Streams Runner is installed, create the following environment variables from the fields that are shown in the credentials.
 
-| Environment variable | Command-line option           | Credentials field | Environment variable example                                                 |
-|----------------------|------------------|-------------------|---------------------------------------------------------|
-| `OS_USER_ID`           | `--swiftUserId`    | `userId`            | `export OS_USER_ID='2b670d77432e4cf2bd128ef9ff61fa56'`    |
-| `OS_PASSWORD`          | `--swiftPassword`  | `password`          | `export OS_PASSWORD='f1H/~BIO.=s0wuT9'`                  |
-| `OS_PROJECT_ID`        | `--swiftProjectId` | `projectId`         | `export OS_PROJECT_ID='80301e24254f4ffb81d53f0cddccad78'` |
-| `OS_REGION_NAME`       | `--swiftRegion`    | `region`            | `export OS_REGION='dallas'`                               |
+| Environment variable | Credentials field | Environment variable example|
+|----------------------|-------------------|-----------------------------|
+| `AWS_ACCESS_KEY_ID` | `cos_hmac_keys.access_key_id` | `export AWS_ACCESS_KEY_ID=de4e2e3d7bd943a99b672f13dec40f7c`|
+| `AWS_SECRET_ACCESS_KEY` | `cos_hmac_keys.secret_access_key` | `export AWS_SECRET_ACCESS_KEY=54f077c504ebef49bf707cc0d57e3f2a4f4d4a6898b53fec`|
 
-**Tip**: For MacOS, the Swift command of OpenStack might collide with the existing Xcode Swift command. To avoid the conflicts, create a Python virtual environment, and install the Swift client in the virtual environment.
+For more information about object storage in IBM Cloud, see [Getting started with Object Storage](https://console.bluemix.net/docs/services/ObjectStorage/index.html).
 
-```bash
-virtualenv my_project
-cd my_project
-source bin/activate
-pip install python-swiftclient
-pip install python-keystoneclient
+### Specifying required parameters
+
+When launching your Beam application, you must specify the following two parameters:
+1. `--awsServiceEndpoint`
+1. `--awsCredentialsProvider`
+
+The service endpoint is dependent on your service's resiliency, location, and visiblity and can be found in the **Endpoint** tab of your object storage service page. For example, if your service is cross region across all US locations and public, the service endpoint would be `s3-api.us-geo.objectstorage.softlayer.net`.
+
+Beyond the service endpoint, the credentials for the service must be provided. The `--awsCredentialsProvider` option must be specified as a JSON format with a required `@type` field and `AWSCredentialsProvider` class as the value. It is recommended to use the [AWSStaticCredentialsProvider](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSStaticCredentialsProvider.html) along with the environment variables specified. 
+
+Lastly, since the Streams Runner does not include S3 and AWS libraries in its installation, the jars must be specified in the `--jarsToStage` option.
+
+Below is an example of how to launch the `FileStreamSample`
 ```
+# Recompile samples with S3 usage
+mvn clean package -Ps3
 
-For more information about object storage in IBM Cloud, see [Getting started with Object Storage](https://console.bluemix.net/docs/services/ObjectStorage/index.html). For more information about the command-line Swift client, see [Configuring the CLI to use Swift and Cloud Foundry commands](https://console.bluemix.net/docs/services/ObjectStorage/os_configuring.html).
+# Run sample
+mvn exec:java -Ps3 -Dexec.classpathScope=compile -Dexec.cleanupDaemonThreads=false \
+    -Dexec.mainClass=com.ibm.streams.beam.sample.FileStreamSample \
+    -Dexec.args="--runner=StreamsRunner --filesToStage='{\"./README.md\" : \"readme.md\"}' --jarsToStage=$STREAMS_RUNNER_HOME/samples/target/dependency/*amazon*jar:$STREAMS_RUNNER_HOME/samples/target/dependency/*aws*jar --input=streams://readme.md --output=s3://username-beam-bucket/readme.copy --awsServiceEndpoint='s3-api.us-geo.objectstorage.softlayer.net' --awsCredentialsProvider='{\"@type\" : \"AWSStaticCredentialsProvider\", \"awsAccessKeyId\" : \"$AWS_ACCESS_KEY_ID\",
+    \"awsSecretKey\" : \"$AWS_SECRET_ACCESS_KEY\"}'"
+```
 
 ## `Publish` and `Subscribe` transforms
 
 IBM Streams applications that are written in Java™, Python, SPL, and with the Beam API can publish and subscribe to tuple streams in other Streams applications. You can do the same in your Beam applications by using the Streams Runner `Publish` and `Subscribe` APIs to publish or subscribe to tuple streams in other Beam or Streams applications.
 
-To use the `Publish` and `Subscribe` transforms in your Beam application, you must include the Streams Runner SDK JAR file (`$STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.sdk.jar`) in `--jarsToStage`. The `StreamsPubSubSample` in the `$STREAMS_RUNNER_HOME/samples` folder demonstrates basic `Publish` and `Subscribe` usage.
+The `StreamsPubSubSample` in the `$STREAMS_RUNNER_HOME/samples` folder demonstrates basic `Publish` and `Subscribe` usage.
 
 ### `Publish` API reference
 
