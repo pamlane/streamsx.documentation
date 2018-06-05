@@ -126,7 +126,7 @@ These environment variables are not required for the Streams Runner to work; how
       </tr>
       <tr>
         <td>VCAP_SERVICES</td>
-        <td>The path to the IBM Cloud credentials file. If this environment variable is set, the <code class="highlighter-rouge">--vcapServices</code> parameter does not need to be specified on the command line.<br /><br />For more information about the credentials file, see <a href="../../beamrunner-2b-sas/#creating-a-credentials-file-for-your-streaming-analytics-service">Creating a credentials file for your Streaming Analytics service</a>.</td>
+        <td>The path to the IBM Cloud credentials file. If this environment variable is set, the <code class="highlighter-rouge">--vcapServices</code> parameter does not need to be specified on the command line.<br /><br />For more information about the credentials file, see <a href="../../../beamrunner-2b-sas/#creating-a-credentials-file-for-your-streaming-analytics-service">Creating a credentials file for your Streaming Analytics service</a>.</td>
         <td>Set by using the <code class="highlighter-rouge">export</code> command.</td>
       </tr>
       <tr>

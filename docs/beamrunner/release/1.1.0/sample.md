@@ -22,7 +22,7 @@ For more information about this sample application, see [The TemperatureSample a
 
 Before you run the `TemperatureSample` sample application, you must configure and run the following service on IBM IBM Cloud®:
 
-- Streaming Analytics. For more information, see [Creating a Streaming Analytics service on IBM Cloud](../../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-bluemix).
+- Streaming Analytics. For more information, see [Creating a Streaming Analytics service on IBM Cloud](../../../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-bluemix).
 
 **Important**: If you want to compile your application on IBM Cloud, you must unset the `STREAMS_INSTALL` variable before you submit the application to the Streaming Analytics service.
 
@@ -32,7 +32,7 @@ The following video demonstrates how to launch the `TemperatureSample`.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/i-inPl4Yf58" frameborder="0" allowfullscreen></iframe>
 <br>
 
-2. Navigate to the `$STREAMS_RUNNER_HOME/samples` directory. The Streams Runner toolkit provides all necessary files. Assuming that all environment variables are set as described in [Downloading and configuring Streams Runner](../../beamrunner-2b-sas/#downloading-and-configuring-streams-runner) and that the `$VCAP_SERVICES` IBM Cloud credentials file has credentials in it named `beam-service`, you can launch the `TemperatureSample` application with the following command:
+2. Navigate to the `$STREAMS_RUNNER_HOME/samples` directory. The Streams Runner toolkit provides all necessary files. Assuming that all environment variables are set as described in [Downloading and configuring Streams Runner](../../../beamrunner-2b-sas/#downloading-and-configuring-streams-runner) and that the `$VCAP_SERVICES` IBM Cloud credentials file has credentials in it named `beam-service`, you can launch the `TemperatureSample` application with the following command:
 
    ```bash
    java -cp \

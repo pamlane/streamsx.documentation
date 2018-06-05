@@ -48,7 +48,7 @@ Use this context to build and submit an application to a Streaming Analytics ser
 
 To authenticate and select the Streaming Analytics service to submit to, you must specify the following information:
 
-- The location of the [IBM Cloud credentials file](../../beamrunner-2b-sas/#creating-a-credentials-file-for-your-streaming-analytics-service).  
+- The location of the [IBM Cloud credentials file](../../../beamrunner-2b-sas/#creating-a-credentials-file-for-your-streaming-analytics-service).  
 Use the `--vcapServices` parameter or `VCAP_SERVICES` environment variable.
 - The specific service name.  
 Use the `--serviceName` parameter or `STREAMING_ANALYTICS_SERVICE_NAME` environment variable.

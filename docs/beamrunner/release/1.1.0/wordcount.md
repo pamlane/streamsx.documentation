@@ -20,7 +20,7 @@ You can use IBM® Streams Runner for Apache Beam to run the Apache Beam 2.1 Java
 
 Before you run the `WordCount` sample application, you must configure and run the following services on IBM Cloud (formerly IBM Bluemix):
 
-- Streaming Analytics. For more information, see [Creating a Streaming Analytics service on IBM Cloud](../../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-bluemix).
+- Streaming Analytics. For more information, see [Creating a Streaming Analytics service on IBM Cloud](../../../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-bluemix).
 - Object Storage OpenStack Swift for Bluemix.
    - Create the service if you don't already have one. For more information, see [Creating the Object Storage OpenStack Swift for Bluemix service](../io/#creating-the-object-storage-openstack-swift-for-bluemix-service).
    - Set up credentials for the service. **Remember**: Make sure the environment variables are configured. For more information, see [Set up credentials for the service](../io/#setting-up-credentials-for-the-service).

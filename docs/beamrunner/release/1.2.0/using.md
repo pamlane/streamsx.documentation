@@ -48,7 +48,7 @@ Use this context to build and submit an application to a Streaming Analytics ser
 
 To authenticate and select the Streaming Analytics service to submit to, you must specify the following information:
 
-- The location of the [IBM Cloud credentials file](../../beamrunner-2b-sas/#creating-a-credentials-file-for-your-streaming-analytics-service).  
+- The location of the [IBM Cloud credentials file](../../../beamrunner-2b-sas/#creating-a-credentials-file-for-your-streaming-analytics-service).  
 Use the `--vcapServices` parameter or `VCAP_SERVICES` environment variable.
 - The specific service name.  
 Use the `--serviceName` parameter or `STREAMING_ANALYTICS_SERVICE_NAME` environment variable.
@@ -91,7 +91,7 @@ Use this context to build an application locally and submit it to a local Stream
 * A local Streams installation (IBM Streams 4.2 or higher).
 * A running Streams domain and instance. For more information, see [Creating an IBM Streams basic domain and instance](https://www.ibm.com/support/knowledgecenter/en/SSCRJU_4.2.1/com.ibm.streams.cfg.doc/doc/creating-basic-domain-and-instance.html).
 
-**Tip:** You can obtain a local Streams installation by installing the [IBM Streams Quick Start Edition](../../4.2/qse-intro/), which is a Red Hat Enterprise Linux virtual machine image that is preconfigured to create and start a Streams runtime environment.
+**Tip:** You can obtain a local Streams installation by installing the [IBM Streams Quick Start Edition](../../../..//4.2/qse-intro/), which is a Red Hat Enterprise Linux virtual machine image that is preconfigured to create and start a Streams runtime environment.
 
 #### Overview
 To launch a Beam application to a local, distributed Streams environment, set `DISTRIBUTED` as the
