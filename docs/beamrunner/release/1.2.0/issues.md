@@ -7,8 +7,8 @@ weight:  10
 published: true
 tag: beam-120
 prev:
-  file: objstor
-  title: Using IBM Cloud Object Storage
+  file: troubleshoot
+  title: Troubleshooting
 ---
 
 Learn about limitations and known issues for IBM® Streams Runner for Apache Beam.

@@ -20,7 +20,7 @@ You can troubleshoot any issues that occur when you launch, run, or monitor IBMÂ
 The latest Streams Runner version is 1.2.0. You can [download](../../../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-ibm-cloud) the latest Streams Runner installation archive from an IBM Streaming Analytics container-based service. 
 
 ## Check known problems and solutions
-See if your problem matches any issues in the [issues and limitations page](../issues.md).
+See if your problem matches any issues in the [issues and limitations page](../issues).
 
 ## Enable tracing
 Tracing can give information about the translation and execution of your Beam application and can help debug problems.

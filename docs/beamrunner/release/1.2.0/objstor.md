@@ -10,8 +10,8 @@ prev:
   file: io
   title: I/O options
 next:
-  file: issues
-  title: Limitations and known issues
+  file: performance
+  title: Performance considerations
 ---
 
 You can use the IBM® Streams Runner for Apache Beam `FileStreamSample` sample application to learn how to use IBM Cloud object storage for file input and output.

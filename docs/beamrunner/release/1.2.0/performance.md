@@ -10,8 +10,8 @@ prev:
   file: objstor
   title: Using IBM Cloud Object Storage
 next:
-  file: issues
-  title: Limitations and known issues
+  file: troubleshoot
+  title: Troubleshooting
 ---
 
 The performance of your IBM® Streams Runner for Apache Beam application is

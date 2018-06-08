@@ -53,6 +53,6 @@ tags:
         - page: "Performance considerations"
           url: "/docs/beamrunner/release/1.2.0/performance"
         - page: "Troubleshooting"
-          url: "/docs/beamrunner/release/1.2.0/troubleshooting"
+          url: "/docs/beamrunner/release/1.2.0/troubleshoot"
     - page: "Limitations and known issues"
       url: "/docs/beamrunner/release/1.2.0/issues"
