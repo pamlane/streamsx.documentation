@@ -24,7 +24,7 @@ Understanding how these work will help you get the best performance.
 The [`DoFn`](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/transforms/DoFn.html)
 instances that make up an Apache Beam application process elements in
 arbitrary bundles created by the runners. Bundling elements together can
-increase overall throughput but may increase latency of individual
+increase overall throughput but can increase latency of individual
 elements.
 
 The IBM Streams Runner for Apache Beam pipeline options `--bundleSize` and
@@ -48,7 +48,7 @@ The simplest way to enable parallelism for your application is to set a
 default width for the entire application, for example `--parallelWidth=4`
 will cause the runner to use parallelism of 4 wherever it can.
 
-In some cases finer control may be useful if, for example, some transforms
+In some cases finer control can be useful if, for example, some transforms
 in the application will benefit more or less from parallelism. In that
 case, the option can supply widths for matching steps.
 
@@ -73,9 +73,9 @@ run the transform in a non-parallelized form. The following code snippet
 demonstrates an example. As the `AddKey` transform adds the same `Void` key
 to all elements, the downstream `GBK` cannot run in parallel. If a user
 specifies a parallel width (greater than 1) for the entire pipeline, the
-runner may silently ignore the parallel width for the section of the pipeline
+runner can silently ignore the parallel width for the section of the pipeline
 that uses the `Void` keys. If a user explicitly specifies a parallel width
-for the `GBK` in the example, the runner, again, may ignore the specified width.
+for the `GBK` in the example, the runner, again, can ignore the specified width.
 
 ```java
 Pipeline p = Pipeline.create(options);

@@ -29,7 +29,7 @@ Standard output and errors in the Beam pipeline are not visible in the terminal 
 
 ## Local file input (`streams://`)
 
-Because the application runs on remote systems like in the IBM Cloud or distributed environment, it may not have direct access to local files. Local files can be uploaded to the distributed environment when the runner is launched by using the `--filesToStage` option. This option uploads one or more local files to known locations in the environment, and the pipeline can access them directly from those locations by using the `streams://` scheme.
+Because the application runs on remote systems like in the IBM Cloud or distributed environment, it can not have direct access to local files. Local files can be uploaded to the distributed environment when the runner is launched by using the `--filesToStage` option. This option uploads one or more local files to known locations in the environment, and the pipeline can access them directly from those locations by using the `streams://` scheme.
 
 For example, `--filesToStage='{"/local/file.txt":"data/input"}'` copies the file `/local/file.txt` to IBM Cloud or distributed environment where the Beam application can reference it as `streams://data/input`.
 
