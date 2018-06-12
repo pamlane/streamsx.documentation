@@ -5,7 +5,7 @@ navtitle: Using the runner
 description:  To use IBM® Streams Runner for Apache Beam, its libraries must be available to the Beam application  when the application is executed. Additionally, you must select a context that tells the runner how to build and submit the Beam application. Lastly, as with any Beam pipeline, you must specify any custom application parameters or additional runner parameters.
 weight:  10
 published: true
-tag: beam-111
+tag: beam
 prev:
   file: ../../beamrunner-2-install
   title: Installing
@@ -18,7 +18,7 @@ To use IBM® Streams Runner for Apache Beam, its libraries must be available to 
 
 ## Before you start
 
-After you develop your Apache Beam 2.1 application, you must package your app as a JAR file to use it with Streams Runner. For example, if you use the `jar` command, enter the following command:
+After you develop your Apache Beam 2.4 application, you must package your app as a JAR file to use it with Streams Runner. For example, if you use the `jar` command, enter the following command:
 
 ```bash
 jar cf target.jar -C <path to class files>
@@ -91,7 +91,7 @@ Use this context to build an application locally and submit it to a local Stream
 * A local Streams installation (IBM Streams 4.2 or higher).
 * A running Streams domain and instance. For more information, see [Creating an IBM Streams basic domain and instance](https://www.ibm.com/support/knowledgecenter/en/SSCRJU_4.2.1/com.ibm.streams.cfg.doc/doc/creating-basic-domain-and-instance.html).
 
-**Tip:** You can obtain a local Streams installation by installing the [IBM Streams Quick Start Edition](../../../../4.2/qse-intro/), which is a Red Hat Enterprise Linux virtual machine image that is preconfigured to create and start a Streams runtime environment.
+**Tip:** You can obtain a local Streams installation by installing the [IBM Streams Quick Start Edition](../../../..//4.2/qse-intro/), which is a Red Hat Enterprise Linux virtual machine image that is preconfigured to create and start a Streams runtime environment.
 
 #### Overview
 To launch a Beam application to a local, distributed Streams environment, set `DISTRIBUTED` as the
@@ -139,7 +139,7 @@ Because the application is eventually launched in a distributed environment, the
 aware of your Beam application. To include your application and any dependencies,
 use the `--jarsToStage` option.
 
-If your Beam application uses the Beam [ValueProvider](https://beam.apache.org/documentation/sdks/javadoc/2.1.0/org/apache/beam/sdk/options/ValueProvider.html) types for custom pipeline options,
+If your Beam application uses the Beam [ValueProvider](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/options/ValueProvider.html) types for custom pipeline options,
 Streams submission-time parameters are created for the application.
 
 After the application bundle file is created, it can be submitted along with any submission-time parameters to a Streaming Analytics service or local Streams environment through the Streams Console, Streaming Analytics REST API, or `streamtool` command. For more information about bundle submission, see the `$STREAMS_RUNNER_HOME/samples/README` file.
@@ -159,6 +159,6 @@ java -cp $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:$STREAMS
 ## Specify additional parameters
 After you select your context, perform any necessary setup, and specify required parameters, you can add your application or additional Streams Runner parameters as needed. For example, if your Beam application reads input from a file, you can include the file in the application bundle to be available in the Streaming Analytics service or Streams instance environment by using the `--filesToStage` parameter.
 
-For more information about input/output options, see the [i/o options for IBM Streams Runner for Apache Beam](../io).
+For more information about input/output options, see [Input/output options for IBM Streams Runner for Apache Beam](../io).
 
-For the full list of Streams Runner options, see the [general pipeline options](../reference/#general-pipeline-options).
+For the full list of Streams Runner options, see [General pipeline options](../reference/#general-pipeline-options).

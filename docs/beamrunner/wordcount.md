@@ -5,7 +5,7 @@ navtitle: WordCount sample app
 description:  You can use IBM® Streams Runner for Apache Beam to run the Apache Beam 2.4 Java™ SDK Quickstart WordCount sample application.
 weight:  10
 published: true
-tag: beam-120
+tag: beam
 prev:
   file: sample
   title: TemperatureSample app

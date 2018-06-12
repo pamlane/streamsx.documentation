@@ -10,14 +10,14 @@ prev:
   file: beamrunner-2-install
   title: Installing
 next:
-  file: release/1.1.1/using
+  file: using
   title: Using
 ---
 
 Installing IBM® Streams Runner for Apache Beam involves downloading and extracting the Streams Runner toolkit, configuring environment variables, and creating a credentials file for your Streaming Analytics service. You don't need to install IBM Streams to use Streams Runner.
 
 ## Before you start
-The Streaming Analytics installation of Streams Runner supports Apache Beam 2.1 applications, so your application must use the [version 2.1 Java API](https://beam.apache.org/documentation/sdks/javadoc/2.1.0/)
+The Streaming Analytics installation of Streams Runner supports Apache Beam 2.4 applications, so your application must use the [version 2.4 Java API](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/)
 
 ## Before you execute
 
@@ -82,7 +82,7 @@ ls $STREAMS_BEAM_TOOLKIT/lib
 
 The Streams Runner directory tree structure:
 ```
-com.ibm.streams.beam-1.2.0/
+com.ibm.streams.beam-x.y.z/
 | - template.vcap
 | - README.html
 | - README.md

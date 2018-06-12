@@ -10,49 +10,31 @@ tags:
           url: "/docs/beamrunner/beamrunner-2a-onprem"
         - page: "From IBM Streaming Analytics service"
           url: "/docs/beamrunner/beamrunner-2b-sas"
+    
+    - page: "Using the runner"
+      url: "/docs/beamrunner/using"
+
+    - page: "Samples"
+      subpages: 
+        - page: "TemperatureSample sample app"
+          url: "/docs/beamrunner/sample"
+        - page: "WordCount sample app"
+          url: "/docs/beamrunner/wordcount"
+    - page: "Reference"
+      subpages:
+        - page: "Runner reference"
+          url: "/docs/beamrunner/reference"
+        - page: "I/O Options"
+          url: "/docs/beamrunner/io"
+        - page: "Using IBM Cloud Object Storage"
+          url: "/docs/beamrunner/objstor"
+        - page: "Performance considerations"
+          url: "/docs/beamrunner/performance"
+        - page: "Troubleshooting"
+          url: "/docs/beamrunner/troubleshoot"
+    - page: "Limitations and known issues"
+      url: "/docs/beamrunner/issues"
+
     - page: "Release notes"
       url: "/docs/beamrunner/release-notes"
-  beam-111:
-    - page: "Using the runner"
-      url: "/docs/beamrunner/release/1.1.1/using"
-
-    - page: "Samples"
-      subpages: 
-        - page: "TemperatureSample sample app"
-          url: "/docs/beamrunner/release/1.1.1/sample"
-        - page: "WordCount sample app"
-          url: "/docs/beamrunner/release/1.1.1/wordcount"
-    - page: "Reference"
-      subpages:
-        - page: "Runner reference"
-          url: "/docs/beamrunner/release/1.1.1/reference"
-        - page: "I/O Options"
-          url: "/docs/beamrunner/release/1.1.1/io"
-        - page: "Using IBM Cloud Object Storage"
-          url: "/docs/beamrunner/release/1.1.1/objstor"
-    - page: "Limitations and known issues"
-      url: "/docs/beamrunner/release/1.1.1/issues"
-  beam-120:
-    - page: "Using the runner"
-      url: "/docs/beamrunner/release/1.2.0/using"
-
-    - page: "Samples"
-      subpages: 
-        - page: "TemperatureSample sample app"
-          url: "/docs/beamrunner/release/1.2.0/sample"
-        - page: "WordCount sample app"
-          url: "/docs/beamrunner/release/1.2.0/wordcount"
-    - page: "Reference"
-      subpages:
-        - page: "Runner reference"
-          url: "/docs/beamrunner/release/1.2.0/reference"
-        - page: "I/O Options"
-          url: "/docs/beamrunner/release/1.2.0/io"
-        - page: "Using IBM Cloud Object Storage"
-          url: "/docs/beamrunner/release/1.2.0/objstor"
-        - page: "Performance considerations"
-          url: "/docs/beamrunner/release/1.2.0/performance"
-        - page: "Troubleshooting"
-          url: "/docs/beamrunner/release/1.2.0/troubleshoot"
-    - page: "Limitations and known issues"
-      url: "/docs/beamrunner/release/1.2.0/issues"
+    

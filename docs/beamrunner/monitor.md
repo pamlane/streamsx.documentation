@@ -5,7 +5,7 @@ navtitle: Monitoring
 description:  You can use the Apache Beam  2.4 metrics to insert information to monitor your IBM® Streams Runner for Apache Beam application.
 weight:  10
 published: true
-tag: beam-120
+tag: beam
 prev:
   file: wordcount
   title: WordCount sample app

@@ -5,7 +5,7 @@ navtitle: TemperatureSample sample app
 description:  You can use a simple application called `TemperatureSample` to learn how to submit and monitor an Apache Beam 2.4 application in the Streaming Analytics service on IBM Cloud.
 weight:  10
 published: true
-tag: beam-120
+tag: beam
 prev:
   file: using
   title: Using

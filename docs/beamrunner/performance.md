@@ -5,7 +5,7 @@ navtitle: Performance
 description: The performance of your IBM® Streams Runner for Apache Beam application is affected by options and configuration parameters.
 weight:  10
 published: true
-tag: beam-120
+tag: beam
 prev:
   file: objstor
   title: Using IBM Cloud Object Storage

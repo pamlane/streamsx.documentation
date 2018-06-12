@@ -5,7 +5,7 @@ navtitle: Reference
 description:  Learn about the package contents and pipeline options for IBM® Streams Runner for Apache Beam.
 weight:  10
 published: true
-tag: beam-120
+tag: beam
 prev:
   file: monitor
   title: Monitoring
@@ -112,7 +112,7 @@ These environment variables are not required for the Streams Runner to work; how
     <tbody>
       <tr>
         <td>STREAMS_RUNNER_HOME</td>
-        <td>The absolute path to the extraction location of the <code class="highlighter-rouge">com.ibm.streams.beam-1.2.0</code> directory</td>
+        <td>The absolute path to the extraction location of the <code class="highlighter-rouge">com.ibm.streams.beam-x.y.z</code> directory</td>
         <td>Set by using one of the following methods:
         <ul><li>Source the <code class="highlighter-rouge">$STREAMS_RUNNER_HOME/samples/bin/streams-runner-env.sh</code> file.</li>
         <li>Use the  <code class="highlighter-rouge">export</code> command.</li></ul></td>
@@ -141,9 +141,8 @@ These environment variables are not required for the Streams Runner to work; how
       </tr>
     </tbody>
   </table>
-
 ## Apache Beam SDK for Java
 See Beam's [Java API Reference](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/) for information on application APIs.
 
 ## Streams Runner SDK API Reference
-See the [javadoc](../javadoc/index.html) for more information.
+See the [javadoc](../release/1.2/javadoc/index.html) for more information.

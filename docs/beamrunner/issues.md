@@ -5,10 +5,10 @@ navtitle: Limitations and known issues
 description:  Learn about limitations and known issues for IBM® Streams Runner for Apache Beam.
 weight:  10
 published: true
-tag: beam-111
+tag: beam
 prev:
-  file: objstor
-  title: Using IBM Cloud Object Storage
+  file: troubleshoot
+  title: Troubleshooting
 ---
 
 Learn about limitations and known issues for IBM® Streams Runner for Apache Beam.

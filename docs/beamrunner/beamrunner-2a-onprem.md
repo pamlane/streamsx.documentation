@@ -5,12 +5,12 @@ navtitle: Installing
 description: Installing IBM® Streams Runner for Apache Beam for an on-premise installation of IBM Streams involves extracting the Streams Runner toolkit and configuring environment variables.
 weight:  10
 published: true
-tag: beam-120
+tag: beam
 prev:
   file: beamrunner-2-install
   title: Installing
 next:
-  file: release/1.2.0/using
+  file: using
   title: Using
 ---
 
@@ -34,12 +34,12 @@ installation directory and executing:
 1. Choose a location where you have permission to create files to install the Streams Runner, and change directory to that location.
 1. Extract the toolkit by entering the following command:
 ```bash
-tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-1.2.0.tar.gz
+tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-x.y.z.tar.gz
 ```
 1. (Optional) Configure the environment variables. Although the variables are not required, the documentation refers to them for convenience. If you do not set the environment variables, you must use the full paths when you run the sample applications.
     1. Navigate to the `samples` directory in the expanded toolkit, and set up environment variables for the runner:
     ```bash
-    cd com.ibm.streams.beam-1.2.0/samples
+    cd com.ibm.streams.beam-x.y.z/samples
     . bin/streams-runner-env.sh
     ```
 1. Set up Streams for use with Streams Runner.
@@ -79,7 +79,7 @@ ls $STREAMS_BEAM_TOOLKIT/lib
 
 The Streams Runner directory tree structure:
 ```
-com.ibm.streams.beam-1.2.0/
+com.ibm.streams.beam-x.y.z/
 | - template.vcap
 | - README.html
 | - README.md

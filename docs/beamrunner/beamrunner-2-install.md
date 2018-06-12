@@ -20,7 +20,7 @@ Apache Beam applications can be developed without the Streams Runner being insta
 A Streams Runner installation is available in IBM Streams installations beginning with v4.3. Additionally, a Streams Runner installation can be downloaded from an IBM Streaming Analytics service on the IBM Cloud.
 
 ### IBM Streams
-To install the Streams Runner v1.2 (supports Apache Beam 2.4) from an IBM Streams installation, see the [on-premise installation guide](../beamrunner-2a-onprem).
+To install the Streams Runner from an IBM Streams installation, see the [on-premise installation guide](../beamrunner-2a-onprem).
 
 ### IBM Streaming Analytics service
-To install the Streams Runner v1.1.1 (supports Apache Beam 2.1) from an IBM Streaming Analytics service, see the [Streaming Analytics service installation guide](../beamrunner-2b-sas).
+To install the Streams Runner from an IBM Streaming Analytics service, see the [Streaming Analytics service installation guide](../beamrunner-2b-sas).

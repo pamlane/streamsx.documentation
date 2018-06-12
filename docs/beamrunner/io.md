@@ -5,7 +5,7 @@ navtitle: I/O options
 description:  Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam have input/output options of standard output and errors, local file input, Publish and Subscribe transforms, and object storage and messages on IBM Cloud.
 weight:  10
 published: true
-tag: beam-120
+tag: beam
 prev:
   file: reference
   title: Reference
