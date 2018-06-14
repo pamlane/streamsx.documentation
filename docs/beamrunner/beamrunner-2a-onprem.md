@@ -1,8 +1,8 @@
 ---
 layout: docs
-title:  Installing IBM Streams Runner for Apache Beam on-premise
+title:  Installing IBM Streams Runner for Apache Beam on premises
 navtitle: Installing
-description: Installing IBM® Streams Runner for Apache Beam for an on-premise installation of IBM Streams involves extracting the Streams Runner toolkit and configuring environment variables.
+description: Installing IBM® Streams Runner for Apache Beam for an on-premises installation of IBM Streams involves extracting the Streams Runner toolkit and configuring environment variables.
 weight:  10
 published: true
 tag: beam
@@ -17,7 +17,7 @@ next:
 Installing IBM® Streams Runner for Apache Beam from an installation of IBM Streams involves extracting the Streams Runner toolkit and configuring environment variables.
 
 ## Before you start
-The on-premise installation of Streams Runner supports Apache Beam 2.4
+The on-premises installation of Streams Runner supports Apache Beam 2.4
 applications, so your application must use the [version 2.4 Java
 API](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/).
 
