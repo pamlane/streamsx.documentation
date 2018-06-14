@@ -23,20 +23,20 @@ API](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/).
 
 ## Before you execute
 Ensure the `STREAMS_INSTALL` environment variable is set. If it is not, you
-can set in the `bash` shell by using `cd` to change to the Streams
-installation directory and executing:
+can set it in the `bash` shell by using `cd` to change to the Streams
+installation directory and entering the following command:
 ```bash
 . bin/streamsprofile.sh
 ```
 
 ## Installing and configuring Streams Runner
 
-1. Choose a location where you have permission to create files to install Streams Runner, and change directory to that location.
+1. Navigate to a directory where you have permission to create files.
 1. Extract the toolkit by entering the following command:
 ```bash
 tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-x.y.z.tar.gz
 ```
-1. (Optional) Configure the environment variables. Although the variables are not required, the documentation refers to them for convenience. If you do not set the environment variables, you must use the full paths when you run the sample applications.
+1. (Optional) Create the Streams Runner environment variables. Although the variables are not required, the documentation refers to them for convenience. If you do not set the environment variables, you must use the full paths when you run the sample applications.
     1. Navigate to the `samples` directory in the expanded toolkit, and set up environment variables for the runner:
     ```bash
     cd com.ibm.streams.beam-x.y.z/samples
