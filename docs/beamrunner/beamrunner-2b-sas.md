@@ -63,7 +63,7 @@ tar -zxvf com.ibm.streams.beam-1.1.1.tar.gz
     cd com.ibm.streams.beam-1.1.1/samples
     . bin/streams-runner-env.sh
     ```
-    1. Set the environment variables `VCAP_SERVICES` to point to the VCAP file that contains your Streaming Analytics service credentials and `STREAMING_ANALYTICS_SERVICE_NAME` to the service name within that file. For example: 
+    1. Set the environment variables `VCAP_SERVICES` to point to the VCAP file that contains your Streaming Analytics service credentials and `STREAMING_ANALYTICS_SERVICE_NAME` to the service name within that file. For example:
     ```bash
     export VCAP_SERVICES=$HOME/sample.vcap
     export STREAMING_ANALYTICS_SERVICE_NAME="sample-service"
@@ -72,7 +72,7 @@ tar -zxvf com.ibm.streams.beam-1.1.1.tar.gz
 
 ## Validating the Streams Runner installation
 
-The Streams Runner relies on preserving the `com.ibm.streams.beam` directory structure. To verify an installation, ensure that the `translation` and `sdk` JAR files appear as follows when you enter the following command:
+Streams Runner relies on preserving the `com.ibm.streams.beam` directory structure. To verify an installation, ensure that the `translation` and `sdk` JAR files appear as follows when you enter the following command:
 ```bash
 ls $STREAMS_BEAM_TOOLKIT/lib
 ```

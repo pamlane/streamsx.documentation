@@ -71,14 +71,14 @@ The counters and distributions from `COLLECTED_METRIC_NAMESPACE` are returned in
 
 The Streams Runner application can query metrics only while the application is running, not after it is completed, and can query only [`attempted()`](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/metrics/MetricResult.html#attempted--) results, not [`committed()`](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/metrics/MetricResult.html#committed--) results. It also can return metrics that were not added by the application directly but come from the Streams runtime. These metrics are in a namespace that starts with `com.ibm.streams` and includes operator metrics such as `nTuplesSubmitted` and `nTuplesProcessed`.
 
-The Streams Runner uses the name of the Streams operator that implements the step as the step name. This name is usually the same as the name provided when the Beam pipeline is constructed, but might be modified slightly. For example, extra characters that are not allowed in Streams operator names might be removed, or the name might be changed slightly to make it unique. You can see the operator name in the Streams console.
+Streams Runner uses the name of the Streams operator that implements the step as the step name. This name is usually the same as the name provided when the Beam pipeline is constructed, but might be modified slightly. For example, extra characters that are not allowed in Streams operator names might be removed, or the name might be changed slightly to make it unique. You can see the operator name in the Streams console.
 
 ## Viewing metrics in the Streams console and other tools
 The following video demonstrates how to view metrics using the Streams console.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1XDyg9pq-t0" frameborder="0" allowfullscreen></iframe>
 
-<br>The Streams Runner exposes Beam metrics as Streams metrics, so they are visible to Streams tools such as the console, the REST API, or the JMX API. The Streams console is the easiest way to monitor Beam metrics.
+<br>Streams Runner exposes Beam metrics as Streams metrics, so they are visible to Streams tools such as the console, the REST API, or the JMX API. The Streams console is the easiest way to monitor Beam metrics.
 
 In Beam, metrics are associated with steps in the pipeline execution. In Streams, the metrics are associated with the operator that corresponds to that step, and so the Beam metrics are available wherever Streams operator metrics are available.
 

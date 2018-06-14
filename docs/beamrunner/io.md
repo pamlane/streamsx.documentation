@@ -88,7 +88,7 @@ The service endpoint is dependent on your service's resiliency, location, and vi
 
 Beyond the service endpoint, the credentials for the service must be provided. The `--awsCredentialsProvider` option must be specified as a JSON format with a required `@type` field and `AWSCredentialsProvider` class as the value. It is recommended to use the [AWSStaticCredentialsProvider](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSStaticCredentialsProvider.html) along with the environment variables specified.
 
-Lastly, since the Streams Runner does not include S3 and AWS libraries in its installation, the jars must be specified in the `--jarsToStage` option.
+Lastly, since Streams Runner does not include S3 and AWS libraries in its installation, the jars must be specified in the `--jarsToStage` option.
 
 Below is an example of how to launch the `FileStreamSample`
 ```
