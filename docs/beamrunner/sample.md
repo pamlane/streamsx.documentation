@@ -32,16 +32,16 @@ The following video demonstrates how to launch the `TemperatureSample`.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/i-inPl4Yf58" frameborder="0" allowfullscreen></iframe>
 <br>
 
-2. Navigate to the `$STREAMS_RUNNER_HOME/samples` directory. The Streams Runner toolkit provides all necessary files. Assuming that all environment variables are set as described in [Downloading and configuring Streams Runner](../../../beamrunner-2a-onprem/#downloading-and-configuring-streams-runner) and that the `$VCAP_SERVICES` IBM Cloud credentials file has credentials in it named `beam-service`, you can launch the `TemperatureSample` application with the following command:
+2. Navigate to the `$STREAMS_RUNNER_HOME/examples` directory. The Streams Runner toolkit provides all necessary files. Assuming that all environment variables are set as described in [Downloading and configuring Streams Runner](../../../beamrunner-2a-onprem/#downloading-and-configuring-streams-runner) and that the `$VCAP_SERVICES` IBM Cloud credentials file has credentials in it named `beam-service`, you can launch the `TemperatureSample` application with the following command:
 
    ```bash
    java -cp \
    $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:\
-   $STREAMS_RUNNER_HOME/samples/lib/com.ibm.streams.beam.samples.jar \
-   com.ibm.streams.beam.sample.temperature.TemperatureSample \
+   $STREAMS_RUNNER_HOME/examples/transform/target/beam-examples-transform-x.y.x.jar \
+   com.ibm.streams.beam.examples.transform.temperature.TemperatureSample \
    --runner=StreamsRunner \
    --contextType=STREAMING_ANALYTICS_SERVICE \
-   --jarsToStage=$STREAMS_RUNNER_HOME/samples/lib/com.ibm.streams.beam.samples.jar
+   --jarsToStage=$STREAMS_RUNNER_HOME/examples/transform/target/beam-examples-transform-x.y.x.jar
    ```
 
    **Note**: If the environment variables are not set, you must use full paths, and use the `--vcapServices` parameter to provide the path to the IBM Cloud credentials file.
@@ -114,7 +114,7 @@ After you explore the Streams console, stop the application by canceling the job
 
 ## The `TemperatureSample` application
 
-The `TemperatureSample` application takes temperature readings from multiple devices. The application splits the readings into "good" (valid) and "bad" (invalid) readings based on a specific threshold. It counts the bad readings and generates some basic statistics for the good readings, and finally logs the results. The full source is available in the `$STREAMS_RUNNER_HOME/samples/src/com/ibm/streams/beam/sample/temperature` directory, but excerpts are included here to describe the structure of the pipeline.
+The `TemperatureSample` application takes temperature readings from multiple devices. The application splits the readings into "good" (valid) and "bad" (invalid) readings based on a specific threshold. It counts the bad readings and generates some basic statistics for the good readings, and finally logs the results. The full source is available in the `$STREAMS_RUNNER_HOME/examples/transform/src/com/ibm/streams/beam/examples/transform/temperature` directory, but excerpts are included here to describe the structure of the pipeline.
 
 The devices are artificial; they use the Beam `CountingInput` transforms named Counter\_*n* to drive another transform named Device\_*n* to generate random readings:
 

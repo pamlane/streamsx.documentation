@@ -7,8 +7,8 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: objstor
-  title: Using IBM Cloud Object Storage
+  file: mh
+  title: Using IBM Cloud Message Hub
 next:
   file: troubleshoot
   title: Troubleshooting
