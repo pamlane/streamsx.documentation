@@ -25,7 +25,7 @@ Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam have 
 
 Standard output and errors from the main thread of the application are shown in the terminal window where the runner is launched. The `TemperatureSample` application uses this method to display collected metrics.
 
-Standard output and errors in the Beam pipeline are not visible in the terminal because the pipeline is running on a distributed resource (on-premise or in IBM Cloud). Instead, output and errors are written to log files on the distributed system. You can download the log files from the Streams Console, or you can view them in the console log viewer.
+Standard output and errors in the Beam pipeline are not visible in the terminal because the pipeline is running on a distributed resource (on premises or in IBM Cloud). Instead, output and errors are written to log files on the distributed system. You can download the log files from the Streams Console, or you can view them in the console log viewer.
 
 ## Local file input (`streams://`)
 
@@ -86,9 +86,9 @@ When launching your Beam application, you must specify the following two paramet
 
 The service endpoint is dependent on your service's resiliency, location, and visiblity and can be found in the **Endpoint** tab of your object storage service page. For example, if your service is cross region across all US locations and public, the service endpoint would be `s3-api.us-geo.objectstorage.softlayer.net`.
 
-Beyond the service endpoint, the credentials for the service must be provided. The `--awsCredentialsProvider` option must be specified as a JSON format with a required `@type` field and `AWSCredentialsProvider` class as the value. It is recommended to use the [AWSStaticCredentialsProvider](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSStaticCredentialsProvider.html) along with the environment variables specified. 
+Beyond the service endpoint, the credentials for the service must be provided. The `--awsCredentialsProvider` option must be specified as a JSON format with a required `@type` field and `AWSCredentialsProvider` class as the value. It is recommended to use the [AWSStaticCredentialsProvider](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSStaticCredentialsProvider.html) along with the environment variables specified.
 
-Lastly, since the Streams Runner does not include S3 and AWS libraries in its installation, the jars must be specified in the `--jarsToStage` option.
+Lastly, since Streams Runner does not include S3 and AWS libraries in its installation, the jars must be specified in the `--jarsToStage` option.
 
 Below is an example of how to launch the `FileStreamSample`
 ```

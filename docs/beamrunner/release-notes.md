@@ -7,7 +7,7 @@ weight:  10
 published: true
 tag: beam
 ---
-View the features and changes of the Streams Runner from release to release. Any items marked *Experimental* are subject to change between releases
+View the features and changes of Streams Runner from release to release. Any items marked *Experimental* are subject to change between releases
 
 ## v1.2.1
 Includes all features and bug fixes from v1.1.1
