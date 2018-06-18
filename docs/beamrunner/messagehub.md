@@ -10,8 +10,8 @@ prev:
   file: objstor
   title: Using IBM Cloud Object Storage
 next:
-  file: performance
-  title: Performance considerations
+  file: monitor
+  title: Monitoring 
 ---
 
 Beam applications can produce/consume messages to/from IBM Cloud Message Hub

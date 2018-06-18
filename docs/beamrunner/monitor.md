@@ -7,11 +7,11 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: wordcount
-  title: WordCount sample app
+  file: messagehub
+  title: Using IBM Cloud Message Hub
 next:
   file: reference
-  title: Reference
+  title: Runner reference
 ---
 
 You can use the Apache Beam  2.4 [metrics API](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/metrics/package-summary.html) to insert information to monitor your IBM® Streams Runner for Apache Beam application. You can the `TemperatureSample` application that is included in IBM Streams Runner for Apache Beam to learn how Streams Runner makes metrics available for monitoring, both to the application itself and other monitoring tools.

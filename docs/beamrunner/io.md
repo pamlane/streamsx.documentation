@@ -7,8 +7,8 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: reference
-  title: Reference
+  file: wordcount
+  title: WordCount sample app
 next:
   file: objstor
   title: Using IBM Cloud Object Storage

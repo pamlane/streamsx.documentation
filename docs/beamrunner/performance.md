@@ -7,8 +7,8 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: mh
-  title: Using IBM Cloud Message Hub
+  file: reference
+  title: Runner reference
 next:
   file: troubleshoot
   title: Troubleshooting

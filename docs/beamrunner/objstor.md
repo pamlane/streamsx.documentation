@@ -10,7 +10,7 @@ prev:
   file: io
   title: I/O options
 next:
-  file: mh
+  file: messagehub
   title: Using IBM Cloud Message Hub
 ---
 

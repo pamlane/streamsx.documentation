@@ -10,8 +10,8 @@ prev:
   file: monitor
   title: Monitoring
 next:
-  file: io
-  title: I/O options
+  file: performance
+  title: Performance considerations
 ---
 
 Learn about the package contents and pipeline options for IBM® Streams Runner for Apache Beam.

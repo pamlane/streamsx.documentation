@@ -35,21 +35,19 @@ The goal of the project is to provide easy-to-follow documentation and developme
 * [Installing IBM Streams Runner](docs/beamrunner/beamrunner-2-install)
   * [Install from IBM Streams installation](docs/beamrunner/beamrunner-2a-onprem) (v1.2, supports Apache Beam 2.4)
   * [Install from IBM Streaming Analytics service](docs/beamrunner/beamrunner-2b-sas) (v1.1.1, supports Apache Beam 2.1)
-* [Using the IBM Streams Runner](docs/beamrunner/using)
-  * [Monitoring applications](docs/beamrunner/monitor)
-
+* [Using the runner](docs/beamrunner/using)
 * Samples
   * [TemperatureSample sample application](docs/beamrunner/sample)
   * [WordCount sample application](docs/beamrunner/wordcount)
-
+* [I/O Options](docs/beamrunner/io)
+  * [Using IBM Cloud Object Storage](docs/beamrunner/objstor)
+  * [Using IBM Cloud Message Hub](docs/beamrunner/messagehub)
 * Reference
+  * [Monitoring applications](docs/beamrunner/monitor)
   * [Runner options](docs/beamrunner/reference)
   * [Performance considerations](docs/beamrunner/performance)
-  * [Runner-specific SDK API](docs/beamrunner/release/1.2.0/javadoc/)
-  * [I/O Options](docs/beamrunner/io)
-    * [Using IBM Cloud Object Storage](docs/beamrunner/objstor)
+  * [Runner-specific SDK API](docs/beamrunner/release/1.2/javadoc/)
   * [Troubleshooting](docs/beamrunner/troubleshoot)
-
 * [Limitations and known issues](docs/beamrunner/issues)
 * [Release notes](docs/beamrunner/release-notes)
 

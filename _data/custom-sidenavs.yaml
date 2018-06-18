@@ -2,7 +2,6 @@ tags:
   beam:
     - page: "Introduction"
       url: "/docs/beamrunner/beamrunner-1-intro"
-
     - page: "Install"
       url: "/docs/beamrunner/beamrunner-2-install"
       subpages:
@@ -10,31 +9,33 @@ tags:
           url: "/docs/beamrunner/beamrunner-2a-onprem"
         - page: "From IBM Streaming Analytics service"
           url: "/docs/beamrunner/beamrunner-2b-sas"
-    
     - page: "Using the runner"
       url: "/docs/beamrunner/using"
-
     - page: "Samples"
       subpages: 
         - page: "TemperatureSample sample app"
           url: "/docs/beamrunner/sample"
         - page: "WordCount sample app"
           url: "/docs/beamrunner/wordcount"
-    - page: "Reference"
+    - page: "I/O options"
+      url: "/docs/beamrunner/io"
       subpages:
-        - page: "Runner reference"
-          url: "/docs/beamrunner/reference"
-        - page: "I/O Options"
-          url: "/docs/beamrunner/io"
         - page: "Using IBM Cloud Object Storage"
           url: "/docs/beamrunner/objstor"
+        - page: "Using IBM Cloud Message Hub"
+          url: "/docs/beamrunner/messagehub"
+    - page: "Reference"
+      subpages:
+        - page: "Monitoring an application"
+          url: "/docs/beamrunner/monitor"
+        - page: "Runner reference"
+          url: "/docs/beamrunner/reference"
         - page: "Performance considerations"
           url: "/docs/beamrunner/performance"
         - page: "Troubleshooting"
           url: "/docs/beamrunner/troubleshoot"
     - page: "Limitations and known issues"
       url: "/docs/beamrunner/issues"
-
     - page: "Release notes"
       url: "/docs/beamrunner/release-notes"
     

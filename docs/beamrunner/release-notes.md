@@ -6,6 +6,10 @@ description:  Learn about the IBM® Streams Runner features and changes by relea
 weight:  10
 published: true
 tag: beam
+
+prev:
+  file: issues
+  title: Limitations and known issues
 ---
 View the features and changes of Streams Runner from release to release. Any items marked *Experimental* are subject to change between releases
 

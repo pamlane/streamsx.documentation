@@ -8,7 +8,7 @@ published: true
 tag: beam
 prev:
   file: using
-  title: Using
+  title: Using the runner
 next:
   file: wordcount
   title: WordCount sample app
