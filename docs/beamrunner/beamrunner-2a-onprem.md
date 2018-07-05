@@ -34,7 +34,6 @@ installation directory and entering the following command:
 1. Extract the toolkit by entering the following command:
 ```bash
 tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-x.y.z.tar.gz
-pam - is x.y.z a variable?
 ```
 1. (Optional) Create the Streams Runner environment variables.
 

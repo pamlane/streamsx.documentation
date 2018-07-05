@@ -21,7 +21,7 @@ The Streaming Analytics installation of Streams Runner supports Apache Beam 2.1 
 
 ## Before you submit an application
 
-A Red Hat Enterprise Linux 7 environment is recommended for submitting Beam applications to the Streaming Analytics service in IBM Cloud (formerly IBM Bluemix). (pam - why?)
+For best results, use a Red Hat Enterprise Linux 7 environment for submitting Beam applications to the Streaming Analytics service in IBM Cloud (formerly IBM Bluemix). Using a Red Hat Enterprise Linux 6 environment can result in version incompatibility errors if you compile your application locally and then submit it IBM Cloud.
 
 ## Creating a Streaming Analytics service on IBM Cloud
 
