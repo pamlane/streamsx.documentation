@@ -11,18 +11,17 @@ tags:
           url: "/docs/beamrunner/beamrunner-2b-sas"
     - page: "Using the runner"
       url: "/docs/beamrunner/using"
+    - page: "I/O options"
+      url: "/docs/beamrunner/io"
     - page: "Samples"
       subpages: 
         - page: "TemperatureSample sample app"
           url: "/docs/beamrunner/sample"
         - page: "WordCount sample app"
           url: "/docs/beamrunner/wordcount"
-    - page: "I/O options"
-      url: "/docs/beamrunner/io"
-      subpages:
-        - page: "Using IBM Cloud Object Storage"
+        - page: "FileStreamSample sample app"
           url: "/docs/beamrunner/objstor"
-        - page: "Using IBM Cloud Message Hub"
+        - page: "io sample app"
           url: "/docs/beamrunner/messagehub"
     - page: "Reference"
       subpages:
