@@ -1,6 +1,6 @@
 ---
 layout: docs
-title:  Using the IBM Cloud Object Storage service with IBM Streams Runner for Apache Beam
+title:  FileStreamSample sample application for IBM Streams Runner for Apache Beam
 navtitle: Using IBM Cloud Object Storage
 description:  You can use the IBM® Streams Runner for Apache Beam `FileStreamSample` sample application to learn how to use IBM Cloud object storage for file input and output.
 weight:  10
@@ -11,7 +11,7 @@ prev:
   title: I/O options
 next:
   file: messagehub
-  title: Using IBM Cloud Message Hub
+  title: io sample app
 ---
 
 You can use the IBM® Streams Runner for Apache Beam `FileStreamSample` sample application to learn how to use IBM Cloud object storage for file input and output.

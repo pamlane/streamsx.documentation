@@ -37,7 +37,7 @@ The following video demonstrates how to launch the `TemperatureSample`.
    ```bash
    java -cp \
    $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:\
-   $STREAMS_RUNNER_HOME/examples/transform/target/beam-examples-transform-x.y.x.jar \
+   $STREAMS_RUNNER_HOME/examples/transform/target/beam-examples-transform-x.y.z.jar \
    com.ibm.streams.beam.examples.transform.temperature.TemperatureSample \
    --runner=StreamsRunner \
    --contextType=STREAMING_ANALYTICS_SERVICE \

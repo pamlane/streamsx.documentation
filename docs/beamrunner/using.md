@@ -10,8 +10,8 @@ prev:
   file: beamrunner-2-install
   title: Installing
 next:
-  file: sample
-  title: TemperatureSample app
+  file: io
+  title: I/O options
 ---
 
 To use IBM® Streams Runner for Apache Beam, its libraries must be available to the Beam application  when the application is executed. Additionally, you must select a context that tells the runner how to build and submit the Beam application. Lastly, as with any Beam pipeline, you must specify any custom application parameters or additional runner parameters.

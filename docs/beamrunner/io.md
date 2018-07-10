@@ -7,18 +7,19 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: wordcount
-  title: WordCount sample app
+  file: using
+  title: Using
 next:
-  file: objstor
-  title: Using IBM Cloud Object Storage
+  file: sample
+  title: TemperatureSample app
 ---
 
 Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam have several options for input/output:
 
 - Standard output and errors
 - Local file input
-- Object storage and messages on IBM Cloud
+- Object storage on IBM Cloud
+- Messages on IBM Cloud Message Hub
 - `Publish` and `Subscribe` transforms
 
 ## Standard output and errors
@@ -101,6 +102,33 @@ mvn exec:java -Ps3 -Dexec.classpathScope=compile -Dexec.cleanupDaemonThreads=fal
     -Dexec.args="--runner=StreamsRunner --filesToStage='{\"./README.md\" : \"readme.md\"}' --jarsToStage=$STREAMS_RUNNER_HOME/samples/target/dependency/*amazon*jar:$STREAMS_RUNNER_HOME/samples/target/dependency/*aws*jar --input=streams://readme.md --output=s3://username-beam-bucket/readme.copy --awsServiceEndpoint='s3-api.us-geo.objectstorage.softlayer.net' --awsCredentialsProvider='{\"@type\" : \"AWSStaticCredentialsProvider\", \"awsAccessKeyId\" : \"$AWS_ACCESS_KEY_ID\",
     \"awsSecretKey\" : \"$AWS_SECRET_ACCESS_KEY\"}'"
 ```
+## Messages on IBM Cloud Message Hub (is there () text to put here?)
+
+Beam applications can produce messages to and consume messages from IBM
+Cloud Message Hub by using the native Beam [KafkaIO](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/kafka/KafkaIO.html).
+IBM Cloud Message Hub is a scalable, distributed, high-throughput messaging
+service that enables applications and services to communicate easily and
+reliably. For more information about IBM Cloud Message Hub, see [Getting started with Message Hub](https://console.bluemix.net/docs/services/MessageHub/index.html).
+
+### Creating a Message Hub service on IBM Cloud
+
+If you have not already done so, you must create a Message Hub service on IBM Cloud.
+
+1. Go to the [IBM Cloud Catalog](https://console.bluemix.net/catalog/) page and search for **Message Hub**.
+2. Click the **Message Hub** service.
+3. For **Pricing Plan**, choose **Standard**.
+4. Click **Create**. IBM Cloud returns to the **Manage** page of the Message Hub service.
+5. On the **Manage** page **Topics** tab, create a topic by clicking the plus button (**Create topic**). Enter a topic name and click **Create Topic**. You will provide this topic name to the producer and consumer in subsequent steps.
+
+### Setting up credentials for the service
+
+To communicate with Message Hub from Beam applications, you must specify the
+IBM Cloud service credentials.
+
+1. From the Message Hub **Manage** page, click **Service credentials** on the navigation bar.
+2. If necessary, create a credential by clicking **New credential**. Use the default information and click **Add**.
+3. Click **View credentials** for the credential that you added.
+4. Copy the JSON content to a file (for example, `mh.cred`) for future use.
 
 ## `Publish` and `Subscribe` transforms
 

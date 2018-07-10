@@ -1,50 +1,35 @@
 ---
 layout: docs
-title:  Using the IBM Cloud Message Hub service with IBM Streams Runner for Apache Beam
-navtitle: Using IBM Cloud Message Hub
-description:  Beam applications can produce/consume messages to/from IBM Cloud Message Hub using Beam's native KafkaIO.
+title:  io sample application for IBM Streams Runner for Apache Beam
+navtitle: io sample app
+description:  You can use a simple application called `io` to learn how to use IBM Cloud Message Hub for file input and output.
 weight:  10
 published: true
 tag: beam
 prev:
   file: objstor
-  title: Using IBM Cloud Object Storage
+  title: FileStreamSample sample app
 next:
   file: monitor
-  title: Monitoring 
+  title: Monitoring
 ---
 
-Beam applications can produce/consume messages to/from IBM Cloud Message Hub
-using Beam's native [KafkaIO](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/kafka/KafkaIO.html).
-IBM Cloud Message Hub is a scalable, distributed, high throughput messaging
-service that enables applications and services to communicate easily and
-reliably. For more information, see [Getting started with Message Hub](https://console.bluemix.net/docs/services/MessageHub/index.html).
+You can use the IBM® Streams Runner for Apache Beam `io` sample application to learn how to use IBM Cloud Message Hub for file input and output. A Message Hub example application is provided in `$STREAMS_RUNNER_HOME/examples/io`.
 
-## Creating a Message Hub service on IBM Cloud
+## Before you start
 
-If you have not already done so, you must create a Message Hub service on IBM Cloud.
+Before you run the Apache Beam 2.4 `io` sample application, you must configure and run the following services on IBM Cloud®:
 
-1. Navigate to IBM Cloud [Catalog page](https://console.bluemix.net/catalog/), and search for **Message Hub**.
-2. Click the **Message Hub** service.
-3. For **Pricing Plan**, choose standard.
-4. Click Create. IBM Cloud returns to the manage page of the Message Hub service.
-5. On the manage page, navigate to **Topic** tab, click the plus button (**create**), provide a topic name, and then click **Create Topic**. You will provide this topic name to the producer and consumer in subsequent steps.
+- Streaming Analytics. For more information, see [Creating a Streaming Analytics service on IBM Cloud](../../../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-bluemix).
+- IBM Message Hub.
+   - Create the service if you don't already have one. For more information, see [Creating an IBM Cloud Object Storage service](../io/#creating-an-ibm-cloud-object-storage-service).
+   - Set up credentials for the service. **Remember**: Make sure the environment variables are configured. For more information, see [Set up credentials for the service](../io/#setting-up-credentials-for-the-service).
 
-## Setting up credentials for the service
+**Important**: If you want to compile your application on IBM Cloud, you must unset the `STREAMS_INSTALL` variable before you submit the application to the Streaming Analytics service.
 
-To communicate with Message Hub from Beam applications, you must specify the
-IBM Cloud service credentials.
+## Running the sample application
 
-1. From the Message Hub manage page, click **Service credentials** on the left navigation bar.
-2. If necessary, create a credential by clicking **New credential**. Use the default information and click Add.
-3. Click **View credentials**.
-4. Copy the credentials JSON content to a file (_e.g._, `mh.cred`) for future uses.
-
-## Running an example application
-
-This release provides a Message Hub example in `$STREAMS_RUNNER_HOME/examples/io`.
-
-1. Navigate to the `$STREAMS_RUNNER_HOME/examples/io` directory.
+1. Go to the `$STREAMS_RUNNER_HOME/examples/io` directory.
 2. Compile io examples into a uber jar by running `mvn package`. Then the uber jar `beam-examples-io-x.y.z.jar` should be generated in the `$STREAMS_RUNNER_HOME/examples/io/target` folder.
 3. Start the producer by running the following command:
 

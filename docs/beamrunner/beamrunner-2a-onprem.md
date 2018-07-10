@@ -31,7 +31,7 @@ installation directory and entering the following command:
 ## Installing and configuring Streams Runner
 
 1. Go to to a directory where you have permission to create files.
-1. Extract the toolkit by entering the following command:
+1. Extract the toolkit by entering the following command, where `x.y.z` is the version of the archive file:
 ```bash
 tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-x.y.z.tar.gz
 ```
