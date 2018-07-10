@@ -18,7 +18,7 @@ Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam have 
 
 - Standard output and errors
 - Local file input
-- Object storage on IBM Cloud
+- Object storage on IBM Cloud 
 - Messages on IBM Cloud Message Hub
 - `Publish` and `Subscribe` transforms
 
