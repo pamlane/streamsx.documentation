@@ -7,8 +7,8 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: using
-  title: Using the runner
+  file: io
+  title: I/O options
 next:
   file: wordcount
   title: WordCount sample app

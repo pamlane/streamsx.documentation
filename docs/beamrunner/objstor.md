@@ -7,8 +7,8 @@ weight:  10
 published: true
 tag: beam
 prev:
-  file: io
-  title: I/O options
+  file: wordcount
+  title: WordCount sample app
 next:
   file: messagehub
   title: io sample app
