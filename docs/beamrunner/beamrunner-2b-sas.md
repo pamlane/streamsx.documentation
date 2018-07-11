@@ -55,16 +55,16 @@ The following video demonstrates how to download and install the Streams Runner 
 1. Download Streams Runner:
     1. In the Streams Console, click **Help > Download > Download Streams Runner for Apache Beam**.
     1. Select **Save File**, specify a location if necessary, and click **OK**.
-1. Extract the toolkit by entering the following command where you downloaded the file:
+1. Extract the toolkit by entering the following command where you downloaded the file, where `<runner-version>` indicates the version of the archive file:
 ```bash
-tar -zxvf com.ibm.streams.beam-1.1.1.tar.gz
+tar -zxvf com.ibm.streams.beam-<runner-version>.tar.gz
 ```
 1. (Optional) Configure the IBM Streams Runner environment variables.
 
     Tip: Although the variables are not required, the documentation refers to them for convenience. If you do not set the environment variables, you must use the full paths when you run the sample applications.
-    1. Go to the `samples` directory in the expanded toolkit and run the `streams-runner-env.sh` command to set up  environment variables for the runner:
+    1. Go to the `examples/bin` directory in the expanded toolkit and run the `streams-runner-env.sh` command to set up  environment variables for the runner:
     ```bash
-    cd com.ibm.streams.beam-1.1.1/samples
+    cd com.ibm.streams.beam-<runner-version>/examples/bin
     . bin/streams-runner-env.sh
     ```
 
@@ -106,7 +106,7 @@ ls $STREAMS_BEAM_TOOLKIT/lib
 
 ### The Streams Runner directory tree structure
 ```
-com.ibm.streams.beam-x.y.z/
+com.ibm.streams.beam-<runner-version>/
 | - template.vcap
 | - README.html
 | - README.md

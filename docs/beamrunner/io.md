@@ -16,11 +16,11 @@ next:
 
 Apache Beam 2.4 applications that use IBM® Streams Runner for Apache Beam have several options for input/output:
 
-- Standard output and errors
-- Local file input
-- Object storage on IBM Cloud 
-- Messages on IBM Cloud Message Hub
-- `Publish` and `Subscribe` transforms
+- [Standard output and errors](#standard-output-and-errors)
+- [Local file input](#local-file-input-streams)
+- [Object storage on IBM Cloud](#object-storage-inputoutput-on-ibm-cloud-s3)
+- [Messages on IBM Message Hub®](#messages-on-ibm-cloud-message-hub)
+- [`Publish` and `Subscribe` transforms](#publish-and-subscribe-transforms)
 
 ## Standard output and errors
 
@@ -46,25 +46,25 @@ The object storage system requires bucket names must be globally unique and DNS-
 
 For example, if a bucket named `MyBucket` contains objects named `top.txt` and `dir/nested.txt`, the object storage system shows these objects together in the list of objects in `MyBucket`. In Beam, the URIs `s3://MyBucket/foo.txt` and `s3://MyBucket/dir/nested.txt` refer to these two objects, but Beam also considers `s3://MyBucket/dir/` to be a logical directory that contains a resource named `nested.txt`.
 
-For more information about managing file systems and resources with Beam, see the [Beam I/O documentation](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/package-summary.html).
+You can use the [FileStreamSample sample application](../objstor) to learn how to use IBM Cloud object storage for file input and output. For more information about managing file systems and resources with Beam, see the [Beam I/O documentation](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/package-summary.html).
 
 ### Creating an IBM Cloud Object Storage service
 
 If you have not already done so, you must create a Cloud Object Storage service and bucket.
 
-1. On the IBM Cloud [catalog](https://console.bluemix.net/catalog) main menu (under Infrastructure), click **Storage**.
-1. Click **Object Storage**.
-1. Change the Service name to something meaningful to you or leave the default name.
+1. On the IBM Cloud [catalog](https://console.bluemix.net/catalog) main menu, click **Infrastructure**.
+1. From the Infrastructure page, click **Storage > Object Storage**.
+1. Change the Service name to something meaningful to you or leave the default name. pam - I didn't get a service name field or pricing plan option. I had to click "Order storage".
 1. For **Pricing Plan**, click **Lite**.
-1. Click **Create**. IBM Cloud will return you to the Dashboard while the service is provisioned.
-1. Once provisioned, click on your object storage service in the Dashboard to open the **Buckets** page for the service.
+1. Click **Create**. The Dashboard is displayed while the service is provisioned.
+1. After the service is provisioned, click your object storage service in the dashboard to open the **Buckets** page for the service.
 1. Click **Create Bucket**.
-1. Provide a unique bucket name (e.g., username-beam-bucket), resiliency, location, and storage class.
-1. Click **Create**
+1. Provide a unique bucket name (for example, `username-beam-bucket`), resiliency, location, and storage class.
+1. Click **Create**.
 
-### Setting up credentials for the service
+### Setting up credentials for the Object Storage service
 
-To use the storage service from Beam applications, you must specify the IBM Cloud service credentials. Since the `s3` FileSystem is based on AWS object storage, you will need to create credentials with Hash Message Authentication Code (HMAC) keys in your service.
+To use the storage service from Beam applications, you must specify the Object Storage service credentials. Since the `s3` FileSystem is based on AWS object storage, you will need to create credentials with Hash Message Authentication Code (HMAC) keys in your service.
 
 1. On the service page, click **Service credentials**.
 1. Create a credential by clicking **New credential**.
@@ -77,21 +77,25 @@ To use the storage service from Beam applications, you must specify the IBM Clou
 | `AWS_ACCESS_KEY_ID` | `cos_hmac_keys.access_key_id` | `export AWS_ACCESS_KEY_ID=de4e2e3d7bd943a99b672f13dec40f7c`|
 | `AWS_SECRET_ACCESS_KEY` | `cos_hmac_keys.secret_access_key` | `export AWS_SECRET_ACCESS_KEY=54f077c504ebef49bf707cc0d57e3f2a4f4d4a6898b53fec`|
 
-For more information about object storage in IBM Cloud, see [Getting started with Object Storage](https://console.bluemix.net/docs/services/ObjectStorage/index.html).
+<br/>For more information about object storage in IBM Cloud, see [Getting started with Object Storage](https://console.bluemix.net/docs/services/ObjectStorage/index.html).
 
 ### Specifying required parameters
 
-When launching your Beam application, you must specify the following two parameters:
-1. `--awsServiceEndpoint`
-1. `--awsCredentialsProvider`
+When you launch your Beam application, you must specify the following parameters:
+- `--awsServiceEndpoint`
 
-The service endpoint is dependent on your service's resiliency, location, and visiblity and can be found in the **Endpoint** tab of your object storage service page. For example, if your service is cross region across all US locations and public, the service endpoint would be `s3-api.us-geo.objectstorage.softlayer.net`.
+    The service endpoint is dependent on your service's resiliency, location, and visibility and can be found in the **Endpoint** tab of your object storage service page. For example, if your service is cross-region across all U.S. locations and public, the service endpoint is `s3-api.us-geo.objectstorage.softlayer.net`.
+- `--awsCredentialsProvider`
 
-Beyond the service endpoint, the credentials for the service must be provided. The `--awsCredentialsProvider` option must be specified as a JSON format with a required `@type` field and `AWSCredentialsProvider` class as the value. It is recommended to use the [AWSStaticCredentialsProvider](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSStaticCredentialsProvider.html) along with the environment variables specified.
+    The credentials for the service must be provided. The `--awsCredentialsProvider` option must be specified as a JSON format with a required `@type` field and `AWSCredentialsProvider` class as the value. It is recommended to use the [AWSStaticCredentialsProvider](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/AWSStaticCredentialsProvider.html) class along with the environment variables specified. pam - why, ie, get rid of "recommendation".
 
-Lastly, since Streams Runner does not include S3 and AWS libraries in its installation, the jars must be specified in the `--jarsToStage` option.
+- `--filesToStage`
 
-Below is an example of how to launch the `FileStreamSample`
+    Because Streams Runner does not include S3 and AWS libraries in its installation, these JAR files must be specified in the `--jarsToStage` option.
+
+### Launching the sample app
+
+The following example shows how to launch the `FileStreamSample` app.
 ```
 # Recompile samples with S3 usage
 mvn clean package -Ps3
@@ -102,13 +106,14 @@ mvn exec:java -Ps3 -Dexec.classpathScope=compile -Dexec.cleanupDaemonThreads=fal
     -Dexec.args="--runner=StreamsRunner --filesToStage='{\"./README.md\" : \"readme.md\"}' --jarsToStage=$STREAMS_RUNNER_HOME/samples/target/dependency/*amazon*jar:$STREAMS_RUNNER_HOME/samples/target/dependency/*aws*jar --input=streams://readme.md --output=s3://username-beam-bucket/readme.copy --awsServiceEndpoint='s3-api.us-geo.objectstorage.softlayer.net' --awsCredentialsProvider='{\"@type\" : \"AWSStaticCredentialsProvider\", \"awsAccessKeyId\" : \"$AWS_ACCESS_KEY_ID\",
     \"awsSecretKey\" : \"$AWS_SECRET_ACCESS_KEY\"}'"
 ```
-## Messages on IBM Cloud Message Hub (is there () text to put here?)
+## Messages on IBM Message Hub
 
-Beam applications can produce messages to and consume messages from IBM
-Cloud Message Hub by using the native Beam [KafkaIO](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/kafka/KafkaIO.html).
-IBM Cloud Message Hub is a scalable, distributed, high-throughput messaging
+Beam applications can produce messages to and consume messages from IBM Message Hub by using the native Beam [KafkaIO](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/kafka/KafkaIO.html).
+Message Hub is a scalable, distributed, high-throughput messaging
 service that enables applications and services to communicate easily and
-reliably. For more information about IBM Cloud Message Hub, see [Getting started with Message Hub](https://console.bluemix.net/docs/services/MessageHub/index.html).
+reliably.
+
+You can use the [io sample application](../messagehub) to learn how to use Message Hub for input and output. For more information about IBM Message Hub, see [Getting started with Message Hub](https://console.bluemix.net/docs/services/MessageHub/index.html).
 
 ### Creating a Message Hub service on IBM Cloud
 
@@ -116,19 +121,19 @@ If you have not already done so, you must create a Message Hub service on IBM Cl
 
 1. Go to the [IBM Cloud Catalog](https://console.bluemix.net/catalog/) page and search for **Message Hub**.
 2. Click the **Message Hub** service.
-3. For **Pricing Plan**, choose **Standard**.
-4. Click **Create**. IBM Cloud returns to the **Manage** page of the Message Hub service.
+3. For **Pricing Plan**, select **Standard**.
+4. Click **Create**. After the service is created, the **Manage** page of the Message Hub service is displayed.
 5. On the **Manage** page **Topics** tab, create a topic by clicking the plus button (**Create topic**). Enter a topic name and click **Create Topic**. You will provide this topic name to the producer and consumer in subsequent steps.
 
-### Setting up credentials for the service
+### Setting up credentials for the Message Hub service
 
-To communicate with Message Hub from Beam applications, you must specify the
-IBM Cloud service credentials.
+To communicate with Message Hub from Beam applications, you must create a JSON-formatted file that holds credentials and other information for the Message Hub service.
 
-1. From the Message Hub **Manage** page, click **Service credentials** on the navigation bar.
-2. If necessary, create a credential by clicking **New credential**. Use the default information and click **Add**.
-3. Click **View credentials** for the credential that you added.
-4. Copy the JSON content to a file (for example, `mh.cred`) for future use.
+2. Copy the credentials of your Message Hub service:
+  1. On the Message Hub service page, click **Service credentials**.
+  2. If necessary, create a credential by clicking **New credential**. Use the default information and click **Add**.
+  3. Click **View credentials** for the credential that you want to use in your VCAP file. Click **Copy** to copy the credentials.
+3. Paste the copied credentials into a file. Give the file a meaningful name and extension, such as `mh.cred`.
 
 ## `Publish` and `Subscribe` transforms
 

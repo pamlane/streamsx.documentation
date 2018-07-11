@@ -112,7 +112,7 @@ These environment variables are not required for Streams Runner to work; however
     <tbody>
       <tr>
         <td>STREAMS_RUNNER_HOME</td>
-        <td>The absolute path to the extraction location of the `com.ibm.streams.beam-x.y.z` directory, where `x.y.z` is the version of the archive file</td>
+        <td>The absolute path to the extraction location of the `com.ibm.streams.beam-<runner-version>` directory, where `<runner-version>` is the version of Streams Runner</td>
         <td>Set by using one of the following methods:
         <ul><li>Source the `$STREAMS_RUNNER_HOME/samples/bin/streams-runner-env.sh' file.</li>
         <li>Use the  <code class="highlighter-rouge">export</code> command.</li></ul></td>
