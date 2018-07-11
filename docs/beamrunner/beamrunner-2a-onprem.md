@@ -31,16 +31,16 @@ installation directory and entering the following command:
 ## Installing and configuring Streams Runner
 
 1. Go to to a directory where you have permission to create files.
-1. Extract the toolkit by entering the following command, where `x.y.z` is the version of the archive file:
+1. Extract the toolkit by entering the following command, where `<runner-version>` is the version of Streams Runner:
 ```bash
-tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-x.y.z.tar.gz
+tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-<runner-version>.tar.gz
 ```
 1. (Optional) Create the Streams Runner environment variables.
 
     Tip: Although the variables are not required, the documentation refers to them for convenience. If you do not set the environment variables, you must use the full paths when you run the sample applications.
     1. Go to the `samples` directory in the expanded toolkit and run the `streams-runner-env.sh` command to set up environment variables for the runner:
     ```bash
-    cd com.ibm.streams.beam-x.y.z/samples
+    cd com.ibm.streams.beam-<runner-version>/examples
     . bin/streams-runner-env.sh
     ```
 1. Set up IBM Streams for use with Streams Runner.
@@ -80,7 +80,7 @@ ls $STREAMS_BEAM_TOOLKIT/lib
 
 ### The Streams Runner directory tree structure
 ```
-com.ibm.streams.beam-x.y.z/
+com.ibm.streams.beam-<runner-version>/
 | - template.vcap
 | - README.html
 | - README.md
