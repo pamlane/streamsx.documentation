@@ -8,7 +8,7 @@ published: true
 tag: beam
 prev:
   file: messagehub
-  title: io sample app
+  title: I/O sample apps
 next:
   file: reference
   title: Runner reference

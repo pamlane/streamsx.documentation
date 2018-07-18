@@ -1,8 +1,8 @@
 ---
 layout: docs
-title:  io sample application for IBM Streams Runner for Apache Beam
-navtitle: io sample app
-description:  You can use a simple application called `io` to learn how to use IBM Message Hub for input and output.
+title:  I/O sample applications for IBM Streams Runner for Apache Beam
+navtitle: I/O sample apps
+description:  You can use sample applications to learn how to use IBM Message Hub for input and output.
 weight:  10
 published: true
 tag: beam
@@ -14,11 +14,11 @@ next:
   title: Monitoring
 ---
 
-You can use the IBM® Streams Runner for Apache Beam `io` sample application to learn how to use IBM Message Hub® for input and output. A Message Hub example application is provided in `$STREAMS_RUNNER_HOME/examples/io`.
+You can use the IBM® Streams Runner for Apache Beam I/O sample applications to learn how to use IBM Message Hub® for input and output. Message Hub sample applications are provided in the `$STREAMS_RUNNER_HOME/examples/io`directory.
 
 ## Before you start
 
-Before you run the Apache Beam 2.4 `io` sample application, you must configure and run the following service on IBM Cloud®:
+Before you run the Apache Beam 2.4 I/O sample applications, you must configure and run the following service on IBM Cloud®:
 
 - IBM Message Hub.
    - Create the service if you don't already have one. For more information, see [Creating a Message Hub service on IBM Cloud](../io/#creating-a-message-hub-service-on-ibm-cloud).
@@ -27,11 +27,11 @@ Before you run the Apache Beam 2.4 `io` sample application, you must configure a
 ## Running the sample application
 
 1. Go to the `$STREAMS_RUNNER_HOME/examples/io` directory.
-2. In the `io` directory, compile the io sample apps into an uber JAR file by entering the following command:
+2. In the `io` directory, compile the I/O sample apps into an uber JAR file by entering the following command:
 
     `mvn package`
 
-    The `beam-examples-io-<runner-version>.jar` uber JAR file is generated in the `$STREAMS_RUNNER_HOME/examples/io/target` folder.
+    The `beam-examples-io-<runner-version>.jar` uber JAR file is generated in the `$STREAMS_RUNNER_HOME/examples/io/target` directory.
 3. Start the producer by running the following command:
    ```
    java -cp $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:$STREAMS_INSTALL/lib/com.ibm.streams.operator.samples.jar:target/beam-examples-io-<runner-version>.jar \

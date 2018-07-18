@@ -20,8 +20,7 @@ Installing IBM® Streams Runner for Apache Beam from an installation of IBM Stre
 The on-premises installation of Streams Runner supports Apache Beam 2.4
 applications, so your application must use the [Apache Beam SDK for Java API version 2.4](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/).
 
-## Before you run the installation program
-Ensure the `STREAMS_INSTALL` environment variable is set. If it is not, you
+Before you run the installation program, ensure that the `STREAMS_INSTALL` environment variable is set. If it is not, you
 can set it in the `bash` shell by using the `cd` command to change to the Streams
 installation directory and entering the following command:
 ```bash
@@ -30,7 +29,7 @@ installation directory and entering the following command:
 
 ## Installing and configuring Streams Runner
 
-1. Go to to a directory where you have permission to create files.
+1. Go to a directory where you have permission to create files.
 1. Extract the toolkit by entering the following command, where `<runner-version>` is the version of Streams Runner:
 ```bash
 tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-<runner-version>.tar.gz
@@ -38,7 +37,7 @@ tar -zxvf $STREAMS_INSTALL/etc/beam/com.ibm.streams.beam-<runner-version>.tar.gz
 1. (Optional) Create the Streams Runner environment variables.
 
     Tip: Although the variables are not required, the documentation refers to them for convenience. If you do not set the environment variables, you must use the full paths when you run the sample applications.
-    1. Go to the `samples` directory in the expanded toolkit and run the `streams-runner-env.sh` command to set up environment variables for the runner:
+    1. Go to the `examples` directory in the expanded toolkit and run the `streams-runner-env.sh` command to set up environment variables for the runner:
     ```bash
     cd com.ibm.streams.beam-<runner-version>/examples
     . bin/streams-runner-env.sh
@@ -96,7 +95,7 @@ com.ibm.streams.beam-<runner-version>/
 | | - lib/
 | | | - com.ibm.streams.beam.sdk.jar
 | | | - com.ibm.streams.beam.translation.jar
-| - samples/
+| - examples/
 | | - README.html
 | | - README.md
 | | - pom.xml

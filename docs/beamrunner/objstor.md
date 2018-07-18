@@ -11,7 +11,7 @@ prev:
   title: WordCount sample app
 next:
   file: messagehub
-  title: io sample app
+  title: I/O sample apps
 ---
 
 You can use the IBM® Streams Runner for Apache Beam `FileStreamSample` sample application to learn how to use IBM Cloud object storage for file input and output.
@@ -68,7 +68,7 @@ mvn exec:java -Ps3 \
 
    The command is similar to the one that is used in the README.md for this sample application, but there are a few important differences:
 
-    - The `--filesToStage` option is used to move the local `README.md` file to the runtime environment on IBM Cloud to be used as input for the sample. Alternatively, this file can be uploaded to your Cloud Object Storage service by using the web UI or command-line and referenced with the `s3://` scheme, but staging it by using the  -filesToStage` option eliminates the extra step.
+    - The `--filesToStage` option is used to move the local `README.md` file to the runtime environment on IBM Cloud to be used as input for the sample. Alternatively, you can upload this file to your Cloud Object Storage service by using the web UI or command line and reference it with the `s3://` scheme. Using the  `-filesToStage` option eliminates this extra step.
     - The `--input` option uses the `streams://` scheme to refer to the `README.md` file.
     - The `--output` option uses the `s3://` scheme to direct the application to write the output file into an object named `README.md` in a container named `username-beam-bucket`.
 

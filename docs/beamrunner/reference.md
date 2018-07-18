@@ -18,11 +18,11 @@ Learn about the package contents and pipeline options for IBM® Streams Runner f
 
 ## Package contents for Streams Runner
 
-The Streams Runner package contains the following folders:
+The Streams Runner package contains the following directories:
 
 - `com.ibm.streams.beam`: The IBM Streams Runner for Apache Beam toolkit, which you can use to submit Apache Beam  2.4 applications to the IBM Streams runtime environment.
 
-- `samples`: Toolkit sample applications. For information about the samples, see the README file in the samples folder.
+- `examples`: Toolkit sample applications. For information about the samples, see the README file in the `examples` directory.
 
 ## Pipeline Options
 ### General pipeline options
@@ -114,14 +114,14 @@ These environment variables are not required for Streams Runner to work; however
         <td>STREAMS_RUNNER_HOME</td>
         <td>The absolute path to the extraction location of the `com.ibm.streams.beam-<runner-version>` directory, where `<runner-version>` is the version of Streams Runner</td>
         <td>Set by using one of the following methods:
-        <ul><li>Source the `$STREAMS_RUNNER_HOME/samples/bin/streams-runner-env.sh' file.</li>
+        <ul><li>Source the `$STREAMS_RUNNER_HOME/examples/bin/streams-runner-env.sh' file.</li>
         <li>Use the  <code class="highlighter-rouge">export</code> command.</li></ul></td>
       </tr>
       <tr>
         <td>STREAMS_BEAM_TOOLKIT</td>
         <td>The path to the Streams Runner toolkit (<code class="highlighter-rouge">$STREAMS_RUNNER_HOME/com.ibm.streams.beam</code>)</td>
         <td>Set by using one of the following methods:
-        <ul><li>Source the <code class="highlighter-rouge">$STREAMS_RUNNER_HOME/samples/bin/streams-runner-env.sh</code> file.</li>
+        <ul><li>Source the <code class="highlighter-rouge">$STREAMS_RUNNER_HOME/examples/bin/streams-runner-env.sh</code> file.</li>
         <li>Use the  <code class="highlighter-rouge">export</code> command.</li></ul></td>
       </tr>
       <tr>

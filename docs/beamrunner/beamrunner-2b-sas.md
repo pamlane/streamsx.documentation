@@ -65,7 +65,7 @@ tar -zxvf com.ibm.streams.beam-<runner-version>.tar.gz
     1. Go to the `examples/bin` directory in the expanded toolkit and run the `streams-runner-env.sh` command to set up  environment variables for the runner:
     ```bash
     cd com.ibm.streams.beam-<runner-version>/examples/bin
-    . bin/streams-runner-env.sh
+    . streams-runner-env.sh
     ```
 
 ## Creating a credentials file for your Streaming Analytics service
@@ -76,7 +76,7 @@ To submit a Beam application to your Streaming Analytics service on IBM Cloud, y
 
 <br>To create a VCAP file for an existing Streaming Analytics service:
 
-1. Go to the folder where you installed the toolkit (`$STREAMS_RUNNER_HOME`) and copy the `template.vcap` file to a new file. Give the file a meaningful name and a file extension of `.vcap`.
+1. Go to the directory where you installed the toolkit (`$STREAMS_RUNNER_HOME`) and copy the `template.vcap` file to a new file. Give the file a meaningful name and a file extension of `.vcap`.
 2. Copy the credentials of your Streaming Analytics service:
   1. On the Streaming Analytics service page, click **Service credentials**.
   2. If necessary, create a credential by clicking **New credential**. Use the default information and click **Add**.
@@ -122,7 +122,7 @@ com.ibm.streams.beam-<runner-version>/
 | | - lib/
 | | | - com.ibm.streams.beam.sdk.jar
 | | | - com.ibm.streams.beam.translation.jar
-| - samples/
+| - examples/
 | | - README.html
 | | - Makefile
 | | - README.md
