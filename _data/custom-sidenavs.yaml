@@ -21,7 +21,7 @@ tags:
           url: "/docs/beamrunner/wordcount"
         - page: "FileStreamSample sample app"
           url: "/docs/beamrunner/objstor"
-        - page: "io sample app"
+        - page: "I/O sample apps"
           url: "/docs/beamrunner/messagehub"
     - page: "Reference"
       subpages:
