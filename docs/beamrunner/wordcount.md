@@ -8,10 +8,10 @@ published: true
 tag: beam
 prev:
   file: sample
-  title: TemperatureSample app
+  title: TemperatureSample sample app
 next:
-  file: io
-  title: I/O options
+  file: objstor
+  title: FileStreamSample sample app
 ---
 
 You can use IBM® Streams Runner for Apache Beam to run the Apache Beam 2.4 Java™ SDK Quickstart WordCount sample application.

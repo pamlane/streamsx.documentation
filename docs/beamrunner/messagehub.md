@@ -1,71 +1,55 @@
 ---
 layout: docs
-title:  Using the IBM Cloud Message Hub service with IBM Streams Runner for Apache Beam
-navtitle: Using IBM Cloud Message Hub
-description:  Beam applications can produce/consume messages to/from IBM Cloud Message Hub using Beam's native KafkaIO.
+title:  I/O sample applications for IBM Streams Runner for Apache Beam
+navtitle: I/O sample apps
+description:  You can use sample applications to learn how to use IBM Message Hub for input and output.
 weight:  10
 published: true
 tag: beam
 prev:
   file: objstor
-  title: Using IBM Cloud Object Storage
+  title: FileStreamSample sample app
 next:
   file: monitor
-  title: Monitoring 
+  title: Monitoring
 ---
 
-Beam applications can produce/consume messages to/from IBM Cloud Message Hub
-using Beam's native [KafkaIO](https://beam.apache.org/documentation/sdks/javadoc/2.4.0/org/apache/beam/sdk/io/kafka/KafkaIO.html).
-IBM Cloud Message Hub is a scalable, distributed, high throughput messaging
-service that enables applications and services to communicate easily and
-reliably. For more information, see [Getting started with Message Hub](https://console.bluemix.net/docs/services/MessageHub/index.html).
+You can use the IBM® Streams Runner for Apache Beam I/O sample applications to learn how to use IBM Message Hub® for input and output. Message Hub sample applications are provided in the `$STREAMS_RUNNER_HOME/examples/io`directory.
 
-## Creating a Message Hub service on IBM Cloud
+## Before you start
 
-If you have not already done so, you must create a Message Hub service on IBM Cloud.
+Before you run the Apache Beam 2.4 I/O sample applications, you must configure and run the following service on IBM Cloud®:
 
-1. Navigate to IBM Cloud [Catalog page](https://console.bluemix.net/catalog/), and search for **Message Hub**.
-2. Click the **Message Hub** service.
-3. For **Pricing Plan**, choose standard.
-4. Click Create. IBM Cloud returns to the manage page of the Message Hub service.
-5. On the manage page, navigate to **Topic** tab, click the plus button (**create**), provide a topic name, and then click **Create Topic**. You will provide this topic name to the producer and consumer in subsequent steps.
+- IBM Message Hub.
+   - Create the service if you don't already have one. For more information, see [Creating a Message Hub service on IBM Cloud](../io/#creating-a-message-hub-service-on-ibm-cloud).
+   - Set up credentials for the service. **Remember**: Make sure the environment variables are configured. For more information, see [Setting up credentials for the Message Hub  service](../io/#setting-up-credentials-for-the-message-hub-service).
 
-## Setting up credentials for the service
+## Running the sample application
 
-To communicate with Message Hub from Beam applications, you must specify the
-IBM Cloud service credentials.
+1. Go to the `$STREAMS_RUNNER_HOME/examples/io` directory.
+2. In the `io` directory, compile the I/O sample apps into an uber JAR file by entering the following command:
 
-1. From the Message Hub manage page, click **Service credentials** on the left navigation bar.
-2. If necessary, create a credential by clicking **New credential**. Use the default information and click Add.
-3. Click **View credentials**.
-4. Copy the credentials JSON content to a file (_e.g._, `mh.cred`) for future uses.
+    `mvn package`
 
-## Running an example application
-
-This release provides a Message Hub example in `$STREAMS_RUNNER_HOME/examples/io`.
-
-1. Navigate to the `$STREAMS_RUNNER_HOME/examples/io` directory.
-2. Compile io examples into a uber jar by running `mvn package`. Then the uber jar `beam-examples-io-x.y.z.jar` should be generated in the `$STREAMS_RUNNER_HOME/examples/io/target` folder.
+    The `beam-examples-io-<runner-version>.jar` uber JAR file is generated in the `$STREAMS_RUNNER_HOME/examples/io/target` directory.
 3. Start the producer by running the following command:
-
-  ```
-  java -cp $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:$STREAMS_INSTALL/lib/com.ibm.streams.operator.samples.jar:target/beam-examples-io-x.y.z.jar \
+   ```
+   java -cp $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:$STREAMS_INSTALL/lib/com.ibm.streams.operator.samples.jar:target/beam-examples-io-<runner-version>.jar \
         com.ibm.streams.beam.examples.io.mh.Producer\
         --runner=StreamsRunner \
         --contextType=DISTRIBUTED \
-        --jarsToStage=target/beam-examples-io-x.y.z.jar \
+        --jarsToStage=target/beam-examples-io-<runner-version>.jar \
         --topic=<your message hub topic> \
         --cred=<path to the message hub credential file>
   ```
 4. Start the consumer by running the following command:
   ```
-  java -cp $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:$STREAMS_INSTALL/lib/com.ibm.streams.operator.samples.jar:target/beam-examples-io-x.y.z.jar \
+  java -cp $STREAMS_BEAM_TOOLKIT/lib/com.ibm.streams.beam.translation.jar:$STREAMS_INSTALL/lib/com.ibm.streams.operator.samples.jar:target/beam-examples-io-<runner-version>.jar \
         com.ibm.streams.beam.examples.io.mh.Consumer\
         --runner=StreamsRunner \
         --contextType=DISTRIBUTED \
-        --jarsToStage=target/beam-examples-io-x.y.z.jar \
+        --jarsToStage=target/beam-examples-io-<runner-version>.jar \
         --topic=<your message hub topic> \
         --cred=<path to the message hub credential file>
   ```
-5. If both the producer and the consumer are running correctly, you should see the consumer printing
-numbers to `System.out`, one integer per line.
+5. If both the producer and the consumer are running correctly, the consumer prints numbers to `System.out`, one integer per line.

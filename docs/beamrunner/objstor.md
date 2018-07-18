@@ -1,17 +1,17 @@
 ---
 layout: docs
-title:  Using the IBM Cloud Object Storage service with IBM Streams Runner for Apache Beam
+title:  FileStreamSample sample application for IBM Streams Runner for Apache Beam
 navtitle: Using IBM Cloud Object Storage
 description:  You can use the IBM® Streams Runner for Apache Beam `FileStreamSample` sample application to learn how to use IBM Cloud object storage for file input and output.
 weight:  10
 published: true
 tag: beam
 prev:
-  file: io
-  title: I/O options
+  file: wordcount
+  title: WordCount sample app
 next:
   file: messagehub
-  title: Using IBM Cloud Message Hub
+  title: I/O sample apps
 ---
 
 You can use the IBM® Streams Runner for Apache Beam `FileStreamSample` sample application to learn how to use IBM Cloud object storage for file input and output.
@@ -20,10 +20,10 @@ You can use the IBM® Streams Runner for Apache Beam `FileStreamSample` sample a
 
 Before you run the Apache Beam 2.4 `FileStreamSample` sample application, you must configure and run the following services on IBM Cloud®:
 
-- Streaming Analytics. For more information, see [Creating a Streaming Analytics service on IBM Cloud](../../../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-bluemix).
+- Streaming Analytics. For more information, see [Creating a Streaming Analytics service on IBM Cloud](../beamrunner-2b-sas/#creating-a-streaming-analytics-service-on-ibm-cloud).
 - Cloud Object Storage.
    - Create the service if you don't already have one. For more information, see [Creating an IBM Cloud Object Storage service](../io/#creating-an-ibm-cloud-object-storage-service).
-   - Set up credentials for the service. **Remember**: Make sure the environment variables are configured. For more information, see [Set up credentials for the service](../io/#setting-up-credentials-for-the-service).
+   - Set up credentials for the service. **Remember**: Make sure the environment variables are configured. For more information, see [Set up credentials for the Object Storage  service](../io/#setting-up-credentials-for-the-object-storage-service).
 
 **Important**: If you want to compile your application on IBM Cloud, you must unset the `STREAMS_INSTALL` variable before you submit the application to the Streaming Analytics service.
 
@@ -31,21 +31,25 @@ Before you run the Apache Beam 2.4 `FileStreamSample` sample application, you mu
 
 These instructions assume that you have already set up and run other samples on the Streaming Analytics service on IBM Cloud.
 
-1. Navigate to the `samples` directory in Streams Runner, and set up environment variables for the runner:
+1. Go to the `examples` directory in Streams Runner and set up environment variables for the runner:
 
     ```bash
-    cd <installdir>/samples
+    cd <installdir>/examples
     . bin/streams-runner-env.sh
     ```
 
-2. Set the environment variables `VCAP_SERVICES` to point to the VCAP file that contains your Streaming Analytics service credentials and `STREAMING_ANALYTICS_SERVICE_NAME` to the service name within that file, for example:
+2. Set the service credentials environment variables as follows:
+    - `VCAP_SERVICES`: The path to the VCAP file that contains your Streaming Analytics service credentials.
+    - `STREAMING_ANALYTICS_SERVICE_NAME`: The service name within the VCAP file.
+
+    For example:
 
     ```bash
     export VCAP_SERVICES=$HOME/sample.vcap
     export STREAMING_ANALYTICS_SERVICE_NAME="sample-service"
     ```
 
-3. Run the `FileStreamSample` Beam application by entering the following command.
+3. Run the `FileStreamSample` Beam application by entering the following command:
 
     ```bash
 mvn exec:java -Ps3 \
@@ -64,7 +68,7 @@ mvn exec:java -Ps3 \
 
    The command is similar to the one that is used in the README.md for this sample application, but there are a few important differences:
 
-    - The `--filesToStage` option is used to move the local `README.md` file to the runtime environment on IBM Cloud to be used as input for the sample. Alternatively, this file can be uploaded to your Cloud Object Storage service by using the web UI or command-line and referenced with the `s3://` scheme, but staging it this way allows you to use it without that extra step.
+    - The `--filesToStage` option is used to move the local `README.md` file to the runtime environment on IBM Cloud to be used as input for the sample. Alternatively, you can upload this file to your Cloud Object Storage service by using the web UI or command line and reference it with the `s3://` scheme. Using the  `-filesToStage` option eliminates this extra step.
     - The `--input` option uses the `streams://` scheme to refer to the `README.md` file.
     - The `--output` option uses the `s3://` scheme to direct the application to write the output file into an object named `README.md` in a container named `username-beam-bucket`.
 
@@ -72,4 +76,4 @@ mvn exec:java -Ps3 \
 
      <img src="/streamsx.documentation/images/beamrunner/objectstorageresult.jpg" alt="Result file shown in the object storage bucket" width="700" />
 
-     **Remember**: Whether the job is successful or not, it continues to run on the Streaming Analytics service to allow for inspection by the Streams Console. When you are done with the tutorial, make sure to use the Streams Console to cancel any jobs you started.
+     **Remember**: Whether the job is successful, it continues to run on the Streaming Analytics service to allow for inspection by the Streams Console. When you are done with this tutorial, make sure to use the Streams Console to cancel any jobs that you started.

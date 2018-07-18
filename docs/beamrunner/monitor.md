@@ -8,7 +8,7 @@ published: true
 tag: beam
 prev:
   file: messagehub
-  title: Using IBM Cloud Message Hub
+  title: I/O sample apps
 next:
   file: reference
   title: Runner reference
