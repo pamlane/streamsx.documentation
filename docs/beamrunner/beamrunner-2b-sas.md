@@ -78,9 +78,9 @@ To submit a Beam application to your Streaming Analytics service on IBM Cloud, y
 
 1. Go to the directory where you installed the toolkit (`$STREAMS_RUNNER_HOME`) and copy the `template.vcap` file to a new file. Give the file a meaningful name and a file extension of `.vcap`.
 2. Copy the credentials of your Streaming Analytics service:
-  1. On the Streaming Analytics service page, click **Service credentials**.
-  2. If necessary, create a credential by clicking **New credential**. Use the default information and click **Add**.
-  3. Click **View credentials** for the credential that you want to use in your VCAP file. Click **Copy** to copy the credentials.
+   1. On the Streaming Analytics service page, click **Service credentials**.
+   2. If necessary, create a credential by clicking **New credential**. Use the default information and click **Add**.
+   3. Click **View credentials** for the credential that you want to use in your VCAP file. Click **Copy** to copy the credentials.
 3. Paste the copied credentials into the VCAP file that you created, replacing the following line:  
     `<REMOVE THIS LINE AND INSERT CREDENTIALS HERE>`
 4. (Optional) Configure the service credentials environment variables:
