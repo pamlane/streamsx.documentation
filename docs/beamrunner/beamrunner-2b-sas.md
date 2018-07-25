@@ -19,10 +19,6 @@ Installing IBM® Streams Runner for Apache Beam from an IBM Streaming Analytics 
 ## Before you start
 The Streaming Analytics installation of Streams Runner supports Apache Beam 2.1 applications, so your application must use the [Apache Beam SDK for Java API version 2.1](https://beam.apache.org/documentation/sdks/javadoc/2.1.0/)
 
-## Before you submit an application
-
-For best results, use a Red Hat Enterprise Linux 7 environment for submitting Beam applications to the Streaming Analytics service in IBM Cloud (formerly IBM Bluemix). Using a Red Hat Enterprise Linux 6 environment can result in version incompatibility errors if you compile your application locally and then submit it IBM Cloud.
-
 ## Creating a Streaming Analytics service on IBM Cloud
 
 Before you can download Streams Runner, you must have a Streaming Analytics service so that you can open the Streams Console. The following video demonstrates how to create the service.
